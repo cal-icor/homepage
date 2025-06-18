@@ -21,6 +21,10 @@ Technical details and supporting documentation is found [here](https://docs.cal-
 
 The project is hosted on GitHub in the [cal-icor organization](https://github.com/cal-icor). You can find the source code, issue trackers, and other resources there. All code is open source and licensed under the BSD-3-Clause License.
 
+## Interactive Textbook of Interdisciplinary Modules
+
+We have build an [interactive textbook](https://cal-icor.github.io/textbook) which is a collection of interactive notebooks, which you can launch through our server ([jupyter.cal-icor.org](https://jupyter.cal-icor.org)), through public sources like Binder, or Google CoLab, or your own private server (e.g. [datahub.berkeley.edu](https://datahub.berkeley.edu)). 
+
 ## Project Vision
 
 The Partnership for Establishing a California Interactive Computing Open Resource (Cal-ICOR) aims to revolutionize data science education across California's public higher education institutions by providing equitable, cloud-based access to Jupyter notebooks and comprehensive instructor support. Our mission is to empower educators and students with the tools and training necessary to foster innovative, engaging learning experiences.
