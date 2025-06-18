@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo-trans.png" alt="CAL-ICOR logo" />
+  <img src="assets/CalIcor-logo2.png" alt="CAL-ICOR logo" />
 </p>
 
 ![JupyterHub logo](./assets/jupyter.svg#jupyter)    ![Python logo](./assets/python.svg#python)    ![R logo](./assets/r-logo.png#R)  
