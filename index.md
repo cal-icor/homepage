@@ -8,6 +8,10 @@
 
 We are in the process of deploying [JupyterHubs](https://jupyter.org/hub) for use by California public higher education institutions. These JupyterHubs will provide free access to Jupyter notebooks, Python, R, and other tools for data science education for California state institutions. The pilot phase begins in Summer 2025, with a full rollout planned for Fall 2025. The JupyterHubs will be hosted on cloud infrastructure, ensuring scalability and accessibility for all students and educators.
 
+[![Cal-ICOR Project Overview]
+(https://img.youtube.com/vi/HoR33Q5TiiI/maxresdefault.jpg)]
+(https://www.youtube.com/watch?v=HoR33Q5TiiI)
+
 ## Sign-up for access to a cloud-based jupyter-hub
 
 Please <a target="_blank" href="https://docs.google.com/forms/d/1IN3b19WWPbTiAu8WR4tTBZwwMAY-NYS8EgH3I1eGQEI/edit?ts=66f34eb2">sign-up</a> if you would like a JupyterHub configured for your
