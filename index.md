@@ -4,28 +4,27 @@
 
 ![JupyterHub logo](./assets/jupyter.svg#jupyter)    ![Python logo](./assets/python.svg#python)    ![R logo](./assets/r-logo.png#R)  
 
-# JupyterHubs are being deployed for use in the near future!
+# JupyterHubs are currently being deployed for use!
 
-We are in the process of deploying [JupyterHubs](https://jupyter.org/hub) for use by California public higher education institutions. These JupyterHubs will provide free access to Jupyter notebooks, Python, R, and other tools for data science education for California state institutions. The pilot phase begins in Summer 2025, with a full rollout planned for Fall 2025. The JupyterHubs will be hosted on cloud infrastructure, ensuring scalability and accessibility for all students and educators.
+We are in the process of deploying [JupyterHubs](https://jupyter.org/hub) for use by California public higher education institutions. These JupyterHubs will provide free access to Jupyter notebooks, Python, R, and other tools for data science education for California state institutions. The pilot phase began in Summer 2025, with a full rollout coming for Fall 2025. The JupyterHubs will be hosted on cloud infrastructure, ensuring scalability and accessibility for all students and educators.
 
 {% include youtube.html id="HoR33Q5TiiI" %}
 
-## Sign-up for access to a cloud-based jupyter-hub
+## Sign-up for access to our cloud-based Jupyter Hub
 
-Please <a target="_blank" href="https://docs.google.com/forms/d/1IN3b19WWPbTiAu8WR4tTBZwwMAY-NYS8EgH3I1eGQEI/edit?ts=66f34eb2">sign-up</a> if you would like a JupyterHub configured for your
-institution.
+Please <a target="_blank" href="https://docs.google.com/forms/d/1IN3b19WWPbTiAu8WR4tTBZwwMAY-NYS8EgH3I1eGQEI/edit?ts=66f34eb2">sign-up</a> if you would like a JupyterHub configured for your institution.
 
 ## Project Documentation
 
-Technical details and supporting documentation is found [here](https://docs.cal-icor.org)
+The technical details of our platform, including supporting documentation for instructors, support resouces and user policies is found [here](https://docs.cal-icor.org).
 
 ## Github Organization
 
-The project is hosted on GitHub in the [cal-icor organization](https://github.com/cal-icor). You can find the source code, issue trackers, and other resources there. All code is open source and licensed under the BSD-3-Clause License.
+The [cal-icor organization](https://github.com/cal-icor) hosts the project on GitHub. You can find the source code, issue trackers, and other resources there. All code is open source and licensed under the BSD-3-Clause License.
 
 ## Interactive Textbook of Interdisciplinary Modules
 
-We have build an [interactive textbook](https://cal-icor.github.io/textbook) which is a collection of interactive notebooks, which you can launch through our server ([jupyter.cal-icor.org](https://jupyter.cal-icor.org)), through public sources like Binder, or Google CoLab, or your own private server (e.g. [datahub.berkeley.edu](https://datahub.berkeley.edu)). 
+We have build an [interactive textbook](https://cal-icor.github.io/textbook) which is a collection of interactive notebooks, which you can launch through our server ([jupyter.cal-icor.org](https://jupyter.cal-icor.org)), through public sources like [Binder](https://mybinder.org/), [Google CoLab](https://colab.research.google.com/), or your own private server (e.g. [datahub.berkeley.edu](https://datahub.berkeley.edu)).
 
 ## Project Vision
 
@@ -42,9 +41,3 @@ The Partnership for Establishing a California Interactive Computing Open Resourc
 
 Cal-ICOR will collaborate with a network of public higher education institutions across California, including community colleges, California State Universities, and University of California campuses. Key partners include the City College of San Francisco, Santa Barbara City College, and California State University, Long Beach.
 This initiative will leverage existing networks such as the California Alliance for Data Science Education and the California Engineering Liaison Council to enhance outreach and engagement. Additionally non-profit 2I2C will provide guidance on JupyterHub architecture We will draw on successful models from previous JupyterHub implementations, ensuring best practices in accessibility and resource sharing. By fostering a collaborative ecosystem, Cal-ICOR aims to create a sustainable framework for integrating data science education throughout California’s public higher education landscape.
-
-
-
-
-
-
