@@ -1,0 +1,54 @@
+name: Test Build (branches/PRs)
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches-ignore:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          pip install -r requirements.txt
+
+      - name: Build the book
+        run: |
+          set -e
+          jupyter book build --html
+
+      - name: Copy CNAME and docs directory
+        run: |
+          if [ -f CNAME ]; then cp CNAME _build/html/CNAME; fi
+          if [ -d docs ]; then cp -r docs _build/html/; fi
+
+      - name: Determine build output path
+        id: build_path
+        run: |
+          if [ -d "_build/html" ]; then
+            echo "path=./_build/html" >> $GITHUB_OUTPUT
+          elif [ -d "_build/site" ]; then
+            echo "path=./_build/site" >> $GITHUB_OUTPUT
+          else
+            echo "ERROR: No build output found" && exit 1
+          fi
+
+      - name: Upload artifact (for inspection)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.build_path.outputs.path }}
+          retention-days: 1
+

@@ -1,0 +1,21 @@
+version: 1
+
+project:
+  title: Cal-ICOR
+  description: California Interactive Computing Open Resource
+  authors:
+    - name: Cal-ICOR team
+  github: cal-icor/homepage
+
+  toc:
+    - file: index.md
+
+site:
+  template: book-theme
+  options:
+    logo: assets/logo-trans.png
+    logo_text: Cal-ICOR
+    home_page_in_navbar: false
+    use_repository_button: true
+    use_issues_button: true
+    favicon: favicon.ico
