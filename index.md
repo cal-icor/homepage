@@ -1,14 +1,39 @@
-<p align="center">
-  <img src="assets/CalIcor-logo2.png" alt="CAL-ICOR logo" />
-</p>
+```{image} assets/CalIcor-logo2.png
+:align: center
+:class: no-caption
+```
 
-![JupyterHub logo](./assets/jupyter.svg#jupyter)    ![Python logo](./assets/python.svg#python)    ![R logo](./assets/r-logo.png#R)  
+<div class="logo-row" style="text-align: left; display: flex; justify-content: left; align-items: center; gap: 10px;">
+  <figure><img src="./assets/jupyter.svg" alt="JupyterHub logo" class="align-center" width="50"></figure>
+  <figure><img src="./assets/python.svg" alt="Python logo" class="align-center" width="50"></figure>
+  <figure><img src="./assets/r-logo.png" alt="R logo" class="align-center" width="50"></figure>
+</div>
 
 # JupyterHubs are currently being deployed for use!
 
 We are in the process of deploying [JupyterHubs](https://jupyter.org/hub) for use by California public higher education institutions. These JupyterHubs will provide free access to Jupyter notebooks, Python, R, and other tools for data science education for California state institutions. The pilot phase began in Summer 2025, with a full rollout coming for Fall 2025. The JupyterHubs will be hosted on cloud infrastructure, ensuring scalability and accessibility for all students and educators.
 
-{% include youtube.html id="HoR33Q5TiiI" %}
+<div class="embed-container">
+  <iframe src="https://www.youtube.com/embed/HoR33Q5TiiI" frameborder="0" allowfullscreen></iframe>
+</div>
+<style>
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
 
 ## Sign-up for access to our cloud-based Jupyter Hub
 
