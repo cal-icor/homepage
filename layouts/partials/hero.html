@@ -1,0 +1,23 @@
+<section class="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ .title }}</h1>
+      <p class="hero-subtitle">{{ .subtitle }}</p>
+      <div class="hero-ctas">
+        {{ if .cta1_text }}
+        <a href="{{ .cta1_url }}" class="btn btn-primary">{{ .cta1_text }}</a>
+        {{ end }}
+        {{ if .cta2_text }}
+        <a href="{{ .cta2_url }}" class="btn btn-secondary">{{ .cta2_text }}</a>
+        {{ end }}
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-icons">
+        <img src="/images/logos/jupyter.svg" alt="Jupyter" class="hero-icon">
+        <img src="/images/logos/python.svg" alt="Python" class="hero-icon">
+        <img src="/images/logos/r-logo.png" alt="R" class="hero-icon">
+      </div>
+    </div>
+  </div>
+</section>

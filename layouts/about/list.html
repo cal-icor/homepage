@@ -1,0 +1,53 @@
+{{ define "main" }}
+<article class="page">
+  {{ if .Params.hero }}
+  {{ partial "hero.html" (dict "title" .Params.hero.title "subtitle" .Params.hero.subtitle "cta1_text" .Params.hero.cta1_text "cta1_url" .Params.hero.cta1_url "cta2_text" .Params.hero.cta2_text "cta2_url" .Params.hero.cta2_url) }}
+  {{ else }}
+  <header class="page-header">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  {{ end }}
+  
+  <div class="page-content">
+    <div class="container">
+      {{ .Content }}
+    </div>
+  </div>
+  
+  <!-- Vision Grid -->
+  <section class="section expectations-section">
+    <div class="container">
+      {{ partial "vision_grid.html" . }}
+    </div>
+  </section>
+
+  <!-- Remaining About Sections -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="page-content" style="padding-top: 0;">
+        <h2>A Collaborative Statewide Partnership</h2>
+        <p>Cal-ICOR is built on deep collaboration among faculty, instructional designers, technologists, and administrators at institutions across California. Our partners include:</p>
+        <ul>
+          <li><strong>UC Berkeley:</strong> Lead institution providing curriculum development, infrastructure expertise, and statewide coordination.</li>
+          <li><strong>California Education Learning Lab:</strong> Supporting the initiative's development, research, and cross-segment collaboration.</li>
+          <li><strong>Faculty across UC, CSU, and CCC campuses:</strong> Co-developing materials, piloting modules, sharing feedback, and building communities of practice.</li>
+          <li><strong>California Alliance for Data Science Education and the California Engineering Liaison Council:</strong> Enhancing outreach and engagement.</li>
+          <li><strong>2i2c:</strong> Providing guidance on JupyterHub architecture.</li>
+        </ul>
+        <p>This partnership enables Cal-ICOR to evolve with real classroom insights and remain aligned with the diverse needs of California's higher education landscape.</p>
+        
+        <h2>A Future-Proof Investment in California's Students</h2>
+        <p>By building shared computing infrastructure, open educational resources, and instructor capacity, Cal-ICOR lays the foundation for long-term, equitable computing innovation in higher education. It supports disciplines across the academic spectrum, strengthens student preparation for the state's evolving workforce, and advances California's leadership in public education.</p>
+        <p><strong>Cal-ICOR is not just improving individual courses—it is helping shape a statewide model for accessible, scalable, and discipline-spanning data science education.</strong></p>
+      </div>
+    </div>
+  </section>
+  
+  {{ if .Params.show_cta }}
+  {{ partial "cta_band.html" . }}
+  {{ end }}
+</article>
+{{ end }}

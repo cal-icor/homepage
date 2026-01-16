@@ -1,0 +1,26 @@
+# What You Can Expect - 2x2 grid for Partner page
+
+- title: Instructor-Centered Support
+  items:
+    - "**Co-design with experts:** Work with instructional designers and data science educators to adapt course materials for your context."
+    - "**Dedicated onboarding:** We walk you through everything: technical setup, curriculum options, teaching tools, and classroom workflows."
+    - "**Responsive, ongoing support:** Throughout the term, you'll have direct access to staff who can help with implementation hiccups, assignment adjustments, and student-facing questions."
+
+- title: Ready-to-Teach Course Materials
+  items:
+    - "Use or adapt modular, research-backed Jupyter notebook curricula covering introductory to intermediate data science workflows."
+    - "Leverage teaching guides, slide decks, project templates, and assessment tools designed for non-majors and majors alike."
+    - "Build confidence knowing all materials have been tested across diverse institutions and student backgrounds."
+
+- title: No Local Infrastructure Required
+  items:
+    - "Access cloud-based, zero-setup computing environments for students."
+    - "Avoid maintenance burdens. Our team manages the platform so you don't have to."
+    - "Ensure equitable access for all students, regardless of their device or technical background."
+
+- title: A Scalable Model That Grows With You
+  intro: "Whether serving a single class or expanding to multiple departments, Cal-ICOR is designed to support long-term adoption:"
+  items:
+    - "Start small or pilot a module. We'll help you iterate."
+    - "Connect with a network of instructors across the UC, CSU, and CCC systems."
+    - "Share strategies, materials, and lessons learned as your campus builds momentum."

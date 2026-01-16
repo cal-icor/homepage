@@ -1,0 +1,98 @@
+// Cal-ICOR Design Variables
+// ==========================
+
+// Colors
+$color-primary: #1a56db;
+$color-primary-dark: #1e429f;
+$color-primary-light: #3f83f8;
+
+$color-secondary: #0e7490;
+$color-secondary-dark: #155e75;
+$color-secondary-light: #22d3ee;
+
+$color-accent: #f59e0b;
+
+// Neutrals
+$color-white: #ffffff;
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+$color-gray-900: #111827;
+
+$color-text: $color-gray-800;
+$color-text-light: $color-gray-600;
+$color-text-muted: $color-gray-500;
+
+$color-background: $color-white;
+$color-background-alt: $color-gray-50;
+
+// Typography
+$font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-heading: 'Source Sans 3', $font-family-sans;
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+
+$line-height-tight: 1.25;
+$line-height-base: 1.5;
+$line-height-relaxed: 1.75;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+$spacing-8: 2rem;
+$spacing-10: 2.5rem;
+$spacing-12: 3rem;
+$spacing-16: 4rem;
+$spacing-20: 5rem;
+$spacing-24: 6rem;
+
+// Layout
+$container-max-width: 1200px;
+$container-padding: $spacing-6;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Border radius
+$radius-sm: 0.25rem;
+$radius-md: 0.375rem;
+$radius-lg: 0.5rem;
+$radius-xl: 0.75rem;
+$radius-2xl: 1rem;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 200ms ease;
+$transition-slow: 300ms ease;
