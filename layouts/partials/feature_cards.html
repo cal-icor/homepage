@@ -1,0 +1,13 @@
+<div class="feature-cards">
+  {{ range .Site.Data.features }}
+  <div class="feature-card">
+    {{ if .icon }}
+    <div class="feature-icon">
+      <span class="icon icon-{{ .icon }}"></span>
+    </div>
+    {{ end }}
+    <h3 class="feature-title">{{ .title }}</h3>
+    <p class="feature-body">{{ .body }}</p>
+  </div>
+  {{ end }}
+</div>

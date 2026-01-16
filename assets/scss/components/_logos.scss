@@ -1,0 +1,56 @@
+// Logo Grid Component
+// ====================
+
+.logo-section {
+  background-color: $color-white;
+  padding: $spacing-12 0;
+  border-bottom: 1px solid $color-gray-200;
+}
+
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-8;
+  
+  @media (min-width: $breakpoint-md) {
+    gap: $spacing-12;
+  }
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-4;
+  transition: opacity $transition-base, transform $transition-base;
+  
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  
+  img {
+    max-height: 48px;
+    max-width: 150px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter $transition-base, opacity $transition-base;
+  }
+  
+  &:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+.logo-text {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-gray-500;
+  text-align: center;
+}

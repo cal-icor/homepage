@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="page">
+  {{ if .Params.hero }}
+  {{ partial "hero.html" (dict "title" .Params.hero.title "subtitle" .Params.hero.subtitle "cta1_text" .Params.hero.cta1_text "cta1_url" .Params.hero.cta1_url "cta2_text" .Params.hero.cta2_text "cta2_url" .Params.hero.cta2_url) }}
+  {{ else }}
+  <header class="page-header">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  {{ end }}
+  
+  <div class="page-content">
+    <div class="container">
+      {{ .Content }}
+    </div>
+  </div>
+  
+  {{ if .Params.show_cta }}
+  {{ partial "cta_band.html" . }}
+  {{ end }}
+</article>
+{{ end }}

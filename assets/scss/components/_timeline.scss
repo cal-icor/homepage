@@ -1,0 +1,97 @@
+// Timeline Component
+// ===================
+
+.timeline-section {
+  background-color: $color-white;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: $color-gray-200;
+    
+    @media (min-width: $breakpoint-md) {
+      left: 32px;
+    }
+  }
+}
+
+.timeline-item {
+  display: flex;
+  gap: $spacing-6;
+  padding-bottom: $spacing-8;
+  position: relative;
+  
+  &:last-child {
+    padding-bottom: 0;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    gap: $spacing-8;
+  }
+}
+
+.timeline-marker {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background-color: $color-primary;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  
+  @media (min-width: $breakpoint-md) {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.timeline-number {
+  font-family: $font-family-heading;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-xl;
+  }
+}
+
+.timeline-content {
+  flex: 1;
+  padding-top: $spacing-2;
+  
+  @media (min-width: $breakpoint-md) {
+    padding-top: $spacing-4;
+  }
+}
+
+.timeline-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-gray-900;
+  margin-bottom: $spacing-2;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-xl;
+  }
+}
+
+.timeline-body {
+  font-size: $font-size-base;
+  color: $color-text-light;
+  line-height: $line-height-relaxed;
+  margin-bottom: 0;
+}

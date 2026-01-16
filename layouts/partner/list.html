@@ -1,0 +1,42 @@
+{{ define "main" }}
+<article class="page">
+  {{ if .Params.hero }}
+  {{ partial "hero.html" (dict "title" .Params.hero.title "subtitle" .Params.hero.subtitle "cta1_text" .Params.hero.cta1_text "cta1_url" .Params.hero.cta1_url "cta2_text" .Params.hero.cta2_text "cta2_url" .Params.hero.cta2_url) }}
+  {{ else }}
+  <header class="page-header">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  {{ end }}
+  
+  <div class="page-content">
+    <div class="container">
+      {{ .Content }}
+    </div>
+  </div>
+  
+  <!-- What You Can Expect - 2x2 Grid -->
+  <section class="section expectations-section">
+    <div class="container">
+      <h2 class="section-title">What You Can Expect When You Partner With Cal-ICOR</h2>
+      <p class="section-subtitle">A Cal-ICOR partnership is structured to reduce instructor workload, increase student access, and build lasting instructional capacity on your campus.</p>
+      {{ partial "expectations_grid.html" . }}
+    </div>
+  </section>
+  
+  <!-- How to Get Started Timeline -->
+  <section class="section timeline-section">
+    <div class="container">
+      <h2 class="section-title">How to Get Started</h2>
+      <p class="section-subtitle">Getting started with Cal-ICOR is easy and designed to accommodate a wide range of instructor needs and timelines.</p>
+      {{ partial "timeline.html" . }}
+    </div>
+  </section>
+  
+  {{ if .Params.show_cta }}
+  {{ partial "cta_band.html" . }}
+  {{ end }}
+</article>
+{{ end }}

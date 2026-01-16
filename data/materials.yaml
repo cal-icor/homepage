@@ -1,0 +1,17 @@
+# Materials teaser for homepage
+# Fields: title, body, link, image (optional)
+
+- title: Project Documentation
+  body: Comprehensive guides explaining Cal-ICOR's instructional model, technical architecture, and recommended teaching practices. These documents clarify how modules fit together, how computing environments work, and how faculty can integrate materials with minimal lift.
+  link: https://docs.cal-icor.org
+  image: /images/materials/docs.png
+
+- title: GitHub Organization
+  body: A curated collection of open-source repositories containing Jupyter notebooks, assignment templates, datasets, utilities and scaffolds, and example workflows. These materials span multiple disciplines and are ready for instructors to fork, remix, or combine.
+  link: https://github.com/cal-icor/textbook.notebooks
+  image: /images/materials/github.png
+
+- title: Interactive Textbook of Interdisciplinary Modules
+  body: A browsable, student-friendly online textbook featuring hands-on modules across fields such as health, social science, environmental studies, business, and more. Each module is designed with real-world data, annotated examples, and activities that promote applied learning.
+  link: https://cal-icor.github.io/textbook
+  image: /images/materials/textbook.png

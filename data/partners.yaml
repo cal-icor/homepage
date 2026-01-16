@@ -1,0 +1,58 @@
+# Partner institutions - Fall 2025
+# Fields: name, logo (path to logo image), url
+
+# UC Partners
+- name: UC Berkeley
+  logo: /images/logos/partners/ucb.png
+  url: https://www.berkeley.edu
+
+- name: UC Santa Cruz
+  logo: /images/logos/partners/ucsc.png
+  url: https://www.ucsc.edu
+
+# CSU Partners
+- name: CSU Long Beach
+  logo: /images/logos/partners/csulb.png
+  url: https://www.csulb.edu
+
+- name: CSU Maritime
+  logo: /images/logos/partners/csu-maritime.png
+  url: https://www.csum.edu
+
+- name: CSU Sacramento
+  logo: /images/logos/partners/csus.png
+  url: https://www.csus.edu
+
+- name: CSU Fullerton
+  logo: /images/logos/partners/csuf.png
+  url: https://www.fullerton.edu
+
+- name: CSU San Jose
+  logo: /images/logos/partners/sjsu.png
+  url: https://www.sjsu.edu
+
+- name: CSU Monterey Bay
+  logo: /images/logos/partners/csumb.png
+  url: https://www.csumb.edu
+
+- name: CSU East Bay
+  logo: /images/logos/partners/csueb.png
+  url: https://www.csueastbay.edu
+
+- name: CSU Bakersfield
+  logo: /images/logos/partners/csub.png
+  url: https://www.csub.edu
+
+
+# California Community Colleges
+- name: Folsom Lake College
+  logo: /images/logos/partners/flc.png
+  url: https://www.flc.losrios.edu
+
+- name: Cuesta College
+  logo: /images/logos/partners/cuesta.png
+  url: https://www.cuesta.edu
+
+- name: Diablo Valley College
+  logo: /images/logos/partners/dvc.png
+  url: https://www.dvc.edu

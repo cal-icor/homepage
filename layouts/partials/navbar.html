@@ -1,0 +1,33 @@
+<header class="navbar">
+  <div class="container navbar-container">
+    <a href="/" class="navbar-brand">
+      <img src="/images/logos/cal-icor-logo.png" alt="Cal-ICOR" class="navbar-logo">
+      <span class="navbar-title">Cal-ICOR</span>
+    </a>
+    
+    <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="navbar-toggle-icon"></span>
+    </button>
+    
+    <nav class="navbar-nav">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">
+        {{ .Name }}
+      </a>
+      {{ end }}
+    </nav>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.querySelector('.navbar-toggle');
+  const nav = document.querySelector('.navbar-nav');
+  
+  toggle.addEventListener('click', function() {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('open');
+  });
+});
+</script>

@@ -1,0 +1,66 @@
+# Cal-ICOR Website Configuration
+# Hugo Documentation: https://gohugo.io/getting-started/configuration/
+
+title: Cal-ICOR
+baseURL: 'https://cal-icor.org/'
+
+# Language settings
+defaultContentLanguage: en
+languageCode: en-us
+
+# Build settings
+enableRobotsTXT: true
+enableEmoji: true
+summaryLength: 30
+
+# Disable unused features for cleaner build
+disableKinds:
+  - taxonomy
+  - term
+
+# Markup settings
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+# Menu configuration
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - name: Partner With Us
+      pageRef: /partner
+      weight: 20
+    - name: Explore Materials
+      pageRef: /materials
+      weight: 30
+    - name: About
+      pageRef: /about
+      weight: 40
+    - name: Contact
+      pageRef: /contact
+      weight: 50
+
+# Site parameters
+params:
+  description: "California Interactive Computing Open Resource - Browser-based interactive programming and data science platform for every California student"
+  author: "Cal-ICOR Team"
+  
+  # Social/contact
+  email: ""
+  
+  # Links
+  github: "https://github.com/cal-icor"
+  docs: "https://docs.cal-icor.org"
+  textbook: "https://cal-icor.github.io/textbook"
+  jupyterhub: "https://jupyter.cal-icor.org"
+  signup_form: "https://forms.gle/fH5HSAqzDyGpKVXs6"
+
+# Output formats
+outputs:
+  home:
+    - HTML

@@ -1,0 +1,268 @@
+// Utility Classes
+// ================
+
+// Container
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+// Sections
+.section {
+  padding-top: $spacing-16;
+  padding-bottom: $spacing-16;
+  
+  @media (min-width: $breakpoint-md) {
+    padding-top: $spacing-20;
+    padding-bottom: $spacing-20;
+  }
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: $spacing-4;
+  
+  &.section-title-sm {
+    font-size: $font-size-xl;
+    color: $color-text-light;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.section-subtitle {
+  text-align: center;
+  color: $color-text-light;
+  font-size: $font-size-lg;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $spacing-12;
+}
+
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3 $spacing-6;
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: $radius-lg;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all $transition-base;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+  border-color: $color-primary;
+  
+  &:hover {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+    color: $color-white;
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: $color-primary;
+  border-color: $color-primary;
+  
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+}
+
+.btn-lg {
+  padding: $spacing-4 $spacing-8;
+  font-size: $font-size-lg;
+}
+
+// Page styles
+.page-header {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: $spacing-16 0;
+  text-align: center;
+  
+  h1 {
+    color: $color-white;
+    margin-bottom: $spacing-4;
+  }
+  
+  .subtitle {
+    font-size: $font-size-xl;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.page-content {
+  padding: $spacing-12 0 $spacing-16;
+  
+  h2 {
+    margin-top: $spacing-12;
+    margin-bottom: $spacing-6;
+    padding-bottom: $spacing-3;
+    border-bottom: 2px solid $color-gray-200;
+  }
+  
+  h3 {
+    margin-top: $spacing-8;
+    margin-bottom: $spacing-4;
+    font-size: $font-size-xl;
+  }
+  
+  ul, ol {
+    margin-bottom: $spacing-6;
+  }
+  
+  li {
+    margin-bottom: $spacing-3;
+  }
+}
+
+// Text utilities
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+// Spacing utilities
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-4 { margin-top: $spacing-4; }
+.mb-4 { margin-bottom: $spacing-4; }
+.mt-8 { margin-top: $spacing-8; }
+.mb-8 { margin-bottom: $spacing-8; }
+
+// Contact form embed
+.contact-form-embed {
+  text-align: center;
+  margin: $spacing-8 0;
+  padding: $spacing-8;
+  background-color: $color-gray-50;
+  border-radius: $radius-xl;
+}
+
+.contact-cta {
+  text-align: center;
+  margin-top: $spacing-8;
+  padding: $spacing-6;
+  background-color: $color-primary;
+  color: $color-white;
+  border-radius: $radius-lg;
+  
+  p {
+    margin: 0;
+    color: $color-white;
+  }
+}
+
+// Intro section (homepage)
+.intro-section {
+  background-color: $color-white;
+  padding-top: $spacing-12;
+  padding-bottom: $spacing-12;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  
+  h2 {
+    font-size: $font-size-2xl;
+    color: $color-gray-900;
+    margin-bottom: $spacing-6;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  p {
+    font-size: $font-size-lg;
+    color: $color-text-light;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-4;
+  }
+  
+  .mission-statement {
+    font-size: $font-size-xl;
+    color: $color-gray-900;
+    margin-top: $spacing-6;
+    padding: $spacing-6;
+    background-color: $color-gray-50;
+    border-radius: $radius-lg;
+    border-left: 4px solid $color-primary;
+    text-align: left;
+  }
+}
+
+// Contact page simple layout
+.contact-simple {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  
+  @media (min-width: $breakpoint-md) {
+    flex-direction: row;
+    max-width: 700px;
+    gap: $spacing-12;
+  }
+}
+
+.contact-option {
+  flex: 1;
+  padding: $spacing-8;
+  background-color: $color-gray-50;
+  border-radius: $radius-xl;
+  
+  h3 {
+    font-size: $font-size-xl;
+    color: $color-gray-900;
+    margin-bottom: $spacing-4;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  a:not(.btn) {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $color-primary;
+    
+    &:hover {
+      color: $color-primary-dark;
+    }
+  }
+  
+  .contact-note {
+    margin-top: $spacing-3;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+}

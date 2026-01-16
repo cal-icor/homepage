@@ -1,0 +1,55 @@
+{{ define "main" }}
+<article class="page">
+  {{ if .Params.hero }}
+  {{ partial "hero.html" (dict "title" .Params.hero.title "subtitle" .Params.hero.subtitle "cta1_text" .Params.hero.cta1_text "cta1_url" .Params.hero.cta1_url "cta2_text" .Params.hero.cta2_text "cta2_url" .Params.hero.cta2_url) }}
+  {{ else }}
+  <header class="page-header">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  {{ end }}
+  
+  <div class="page-content">
+    <div class="container">
+      {{ .Content }}
+    </div>
+  </div>
+  
+  <!-- Materials Grid (reused from homepage) -->
+  <section class="section materials-section">
+    <div class="container">
+      {{ partial "materials_teaser.html" . }}
+    </div>
+  </section>
+
+  <!-- How These Resources Fit -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="page-content" style="padding-top: 0;">
+        <h2>How These Resources Fit Into a Cal-ICOR Partnership</h2>
+        <p>When your campus works with Cal-ICOR, these materials are just the starting point. Our team helps you:</p>
+        <ul>
+          <li><strong>Identify the right modules</strong> for your course and discipline</li>
+          <li><strong>Adapt materials</strong> to your pedagogical style and learning outcomes</li>
+          <li><strong>Integrate resources</strong> into a cloud environment with zero local setup</li>
+          <li><strong>Build instructor capacity</strong> through one-on-one guidance and ongoing support</li>
+        </ul>
+        <p>You don't need to navigate any of this alone. We support the process from exploration to classroom implementation.</p>
+        
+        <h2>Access and Licensing</h2>
+        <p>All Cal-ICOR materials are open source and freely available for educational use. Partner institutions receive additional support for customization and implementation.</p>
+        <ul>
+          <li><strong>Textbook and notebooks:</strong> <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause License</a></li>
+          <li><strong>Source code:</strong> Available on <a href="https://github.com/cal-icor">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  {{ if .Params.show_cta }}
+  {{ partial "cta_band.html" . }}
+  {{ end }}
+</article>
+{{ end }}
