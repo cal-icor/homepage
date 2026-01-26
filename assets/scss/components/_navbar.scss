@@ -5,8 +5,8 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: $color-white;
-  border-bottom: 1px solid $color-gray-200;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .navbar-container {
@@ -14,6 +14,12 @@
   align-items: center;
   justify-content: space-between;
   height: 72px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
 }
 
 .navbar-brand {
@@ -36,7 +42,31 @@
   font-family: $font-family-heading;
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
-  color: $color-gray-900;
+  color: var(--color-heading);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: $radius-lg;
+  color: var(--color-gray-600);
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  .theme-toggle-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
 }
 
 .navbar-toggle {
@@ -59,7 +89,7 @@
   position: relative;
   width: 24px;
   height: 2px;
-  background-color: $color-gray-700;
+  background-color: var(--color-gray-700);
   transition: background-color $transition-fast;
   
   &::before,
@@ -69,7 +99,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: $color-gray-700;
+    background-color: var(--color-gray-700);
     transition: transform $transition-fast;
   }
   
@@ -100,8 +130,8 @@
   top: 100%;
   left: 0;
   right: 0;
-  background-color: $color-white;
-  border-bottom: 1px solid $color-gray-200;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
   padding: $spacing-4 $container-padding;
   flex-direction: column;
   gap: $spacing-2;
@@ -114,6 +144,7 @@
     display: flex;
     position: static;
     flex-direction: row;
+    align-items: center;
     gap: $spacing-8;
     padding: 0;
     border-bottom: none;
@@ -123,18 +154,18 @@
 .nav-link {
   font-size: $font-size-base;
   font-weight: $font-weight-medium;
-  color: $color-gray-600;
+  color: var(--color-gray-600);
   text-decoration: none;
   padding: $spacing-2 0;
   transition: color $transition-fast;
   
   &:hover {
-    color: $color-primary;
+    color: var(--color-primary);
     text-decoration: none;
   }
   
   &.active {
-    color: $color-primary;
+    color: var(--color-primary);
   }
   
   @media (min-width: $breakpoint-lg) {

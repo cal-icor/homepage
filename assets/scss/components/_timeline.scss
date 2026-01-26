@@ -2,7 +2,7 @@
 // ===================
 
 .timeline-section {
-  background-color: $color-white;
+  background-color: var(--color-surface);
 }
 
 .timeline {
@@ -17,7 +17,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: $color-gray-200;
+    background-color: var(--color-gray-200);
     
     @media (min-width: $breakpoint-md) {
       left: 32px;
@@ -44,7 +44,7 @@
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  background-color: $color-primary;
+  background-color: var(--color-primary);
   border-radius: $radius-full;
   display: flex;
   align-items: center;
@@ -62,7 +62,7 @@
   font-family: $font-family-heading;
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
-  color: $color-white;
+  color: var(--color-white);
   
   @media (min-width: $breakpoint-md) {
     font-size: $font-size-xl;
@@ -81,7 +81,7 @@
 .timeline-title {
   font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
-  color: $color-gray-900;
+  color: var(--color-heading);
   margin-bottom: $spacing-2;
   
   @media (min-width: $breakpoint-md) {
@@ -91,7 +91,7 @@
 
 .timeline-body {
   font-size: $font-size-base;
-  color: $color-text-light;
+  color: var(--color-text-light);
   line-height: $line-height-relaxed;
   margin-bottom: 0;
 }

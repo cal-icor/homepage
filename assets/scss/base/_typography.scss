@@ -14,8 +14,8 @@ body {
   font-family: $font-family-sans;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  color: $color-text;
-  background-color: $color-background;
+  color: var(--color-text);
+  background-color: var(--color-background);
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-heading;
   font-weight: $font-weight-bold;
   line-height: $line-height-tight;
-  color: $color-gray-900;
+  color: var(--color-heading);
   margin-top: 0;
   margin-bottom: $spacing-4;
 }
@@ -76,12 +76,12 @@ p {
 }
 
 a {
-  color: $color-primary;
+  color: var(--color-primary);
   text-decoration: none;
   transition: color $transition-fast;
   
   &:hover {
-    color: $color-primary-dark;
+    color: var(--color-primary-dark);
     text-decoration: underline;
   }
 }
@@ -107,6 +107,6 @@ img {
 
 hr {
   border: 0;
-  border-top: 1px solid $color-gray-200;
+  border-top: 1px solid var(--color-border);
   margin: $spacing-8 0;
 }

@@ -2,8 +2,8 @@
 // ===================
 
 .cta-band {
-  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-dark 100%);
-  color: $color-white;
+  background: linear-gradient(135deg, var(--cta-band-start) 0%, var(--cta-band-end) 100%);
+  color: var(--color-white);
   padding: $spacing-16 0;
   
   @media (min-width: $breakpoint-md) {
@@ -20,7 +20,7 @@
 .cta-title {
   font-size: $font-size-2xl;
   font-weight: $font-weight-bold;
-  color: $color-white;
+  color: var(--color-white);
   margin-bottom: $spacing-4;
   
   @media (min-width: $breakpoint-md) {
@@ -47,25 +47,25 @@
   }
   
   .btn-primary {
-    background-color: $color-white;
-    color: $color-secondary;
-    border-color: $color-white;
+    background-color: var(--color-white);
+    color: var(--cta-band-start);
+    border-color: var(--color-white);
     
     &:hover {
-      background-color: $color-gray-100;
-      border-color: $color-gray-100;
-      color: $color-secondary-dark;
+      background-color: var(--color-gray-100);
+      border-color: var(--color-gray-100);
+      color: var(--cta-band-end);
     }
   }
   
   .btn-secondary {
     background-color: transparent;
-    color: $color-white;
-    border-color: $color-white;
+    color: var(--color-white);
+    border-color: var(--color-white);
     
     &:hover {
-      background-color: $color-white;
-      color: $color-secondary;
+      background-color: var(--color-white);
+      color: var(--cta-band-start);
     }
   }
 }
