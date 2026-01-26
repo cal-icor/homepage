@@ -3,7 +3,7 @@ title: Contact Us
 description: Get in touch with the Cal-ICOR team
 hero:
   title: Get in Touch
-  subtitle: We would love to hear from you
+  subtitle: We would love to hear from you!
 show_cta: false
 ---
 
