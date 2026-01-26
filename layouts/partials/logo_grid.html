@@ -1,0 +1,16 @@
+<section class="section logo-section">
+  <div class="container">
+    <h2 class="section-title section-title-sm">Current Partner Institutions</h2>
+    <div class="logo-grid">
+      {{ range .Site.Data.partners }}
+      <a href="{{ .url }}" target="_blank" rel="noopener" class="logo-item" title="{{ .name }}">
+        {{ if .logo }}
+        <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+        {{ else }}
+        <span class="logo-text">{{ .name }}</span>
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>

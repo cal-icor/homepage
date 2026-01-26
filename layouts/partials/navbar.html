@@ -1,0 +1,52 @@
+<header class="navbar">
+  <div class="container navbar-container">
+    <a href="/" class="navbar-brand">
+      <img src="/images/logos/cal-icor-logo.png" alt="Cal-ICOR" class="navbar-logo">
+      <span class="navbar-title">Cal-ICOR</span>
+    </a>
+    
+    <div class="navbar-right">
+      <button class="navbar-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="navbar-toggle-icon"></span>
+      </button>
+      <nav class="navbar-nav">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">
+          {{ .Name }}
+        </a>
+        {{ end }}
+      </nav>
+      <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+        <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.querySelector('.navbar-toggle');
+  var nav = document.querySelector('.navbar-nav');
+  toggle.addEventListener('click', function() {
+    var expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('open');
+  });
+
+  var themeBtn = document.querySelector('.theme-toggle');
+  var themeIcon = document.querySelector('.theme-toggle-icon');
+  function setThemeLabel() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    themeBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    themeBtn.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    themeIcon.textContent = isDark ? '\u2600' : '🌙';
+  }
+  setThemeLabel();
+  themeBtn.addEventListener('click', function() {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    setThemeLabel();
+  });
+});
+</script>

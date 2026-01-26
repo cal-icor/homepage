@@ -1,4 +1,22 @@
-_site/
-_build/
+# Hugo build output
+public/
+resources/_gen/
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Old JupyterBook artifacts
+_build/
+_site/
 .jekyll-metadata
+
+# Misc
+*.log
+.hugo_build.lock

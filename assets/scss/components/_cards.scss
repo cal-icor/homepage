@@ -1,0 +1,214 @@
+// Cards Component
+// ================
+
+// Feature Cards
+.feature-section {
+  background-color: var(--color-background-alt);
+}
+
+.feature-cards {
+  display: grid;
+  gap: $spacing-6;
+  
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.feature-card {
+  background-color: var(--color-surface);
+  border-radius: $radius-xl;
+  padding: $spacing-8;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow $transition-base, transform $transition-base;
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary);
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-4;
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-white);
+  }
+}
+
+// Simple icon representations using CSS
+.icon-equity::before { content: "🌐"; font-size: 24px; }
+.icon-time::before { content: "⚡"; font-size: 24px; }
+.icon-curriculum::before { content: "📚"; font-size: 24px; }
+.icon-support::before { content: "🤝"; font-size: 24px; }
+
+.feature-title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: var(--color-heading);
+  margin-bottom: $spacing-3;
+}
+
+.feature-body {
+  font-size: $font-size-base;
+  color: var(--color-text-light);
+  line-height: $line-height-relaxed;
+  margin-bottom: 0;
+}
+
+// Material Cards
+.materials-section {
+  background-color: var(--color-surface);
+}
+
+.materials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-8;
+  justify-content: center;
+  
+  .material-card {
+    flex: 1 1 300px;
+    max-width: 400px;
+  }
+}
+
+.material-card {
+  background-color: var(--color-background-alt);
+  border-radius: $radius-xl;
+  overflow: hidden;
+  transition: box-shadow $transition-base, transform $transition-base;
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+}
+
+.material-image {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-gray-200);
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.material-content {
+  padding: $spacing-6;
+}
+
+.material-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: var(--color-heading);
+  margin-bottom: $spacing-3;
+}
+
+.material-body {
+  font-size: $font-size-base;
+  color: var(--color-text-light);
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-4;
+}
+
+.material-link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+  font-weight: $font-weight-medium;
+  color: var(--color-primary);
+  
+  &:hover {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    
+    span {
+      transform: translateX(4px);
+    }
+  }
+  
+  span {
+    transition: transform $transition-fast;
+  }
+}
+
+// Expectations Grid (Partner page 2x2)
+.expectations-section {
+  background-color: var(--color-background-alt);
+  padding-top: $spacing-8;
+  padding-bottom: $spacing-8;
+}
+
+.expectations-grid {
+  display: grid;
+  gap: $spacing-6;
+  
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.expectation-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $radius-xl;
+  padding: $spacing-6;
+  transition: box-shadow $transition-base;
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.expectation-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: var(--color-heading);
+  margin-bottom: $spacing-4;
+  padding-bottom: $spacing-3;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.expectation-intro {
+  font-size: $font-size-base;
+  color: var(--color-text-light);
+  margin-bottom: $spacing-4;
+}
+
+.expectation-list {
+  list-style: disc;
+  padding-left: $spacing-5;
+  margin: 0;
+  
+  li {
+    font-size: $font-size-base;
+    color: var(--color-text);
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-3;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    strong {
+      color: var(--color-heading);
+    }
+  }
+}

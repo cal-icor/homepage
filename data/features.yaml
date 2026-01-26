@@ -1,0 +1,18 @@
+# Feature cards for "Why Partner with Cal-ICOR" section
+# Fields: title, body, icon (optional)
+
+- title: Expand Access and Equity
+  body: with a standard cloud-based environment that works on any device, for every student.
+  icon: equity
+
+- title: Save Time and Eliminate Setup
+  body: with ready-to-use Jupyter, RStudio, and VS Code environments.
+  icon: time
+
+- title: Use or Adapt Proven Curricula
+  body: developed and classroom-tested at UC Berkeley and partner campuses.
+  icon: curriculum
+
+- title: Get Ongoing Support
+  body: from a dedicated team focused on teaching, onboarding, and technical operations.
+  icon: support

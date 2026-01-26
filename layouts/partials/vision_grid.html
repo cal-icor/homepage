@@ -1,0 +1,8 @@
+<div class="expectations-grid">
+  {{ range .Site.Data.vision }}
+  <div class="expectation-card">
+    <h3 class="expectation-title">{{ .title }}</h3>
+    <p>{{ .body }}</p>
+  </div>
+  {{ end }}
+</div>

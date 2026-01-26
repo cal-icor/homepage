@@ -1,0 +1,121 @@
+// Hero Component
+// ===============
+
+.hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  padding: $spacing-16 0;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-24 0;
+  }
+}
+
+.hero-container {
+  display: grid;
+  gap: $spacing-12;
+  align-items: center;
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr auto;
+    gap: $spacing-16;
+  }
+}
+
+.hero-content {
+  text-align: center;
+  
+  @media (min-width: $breakpoint-lg) {
+    text-align: left;
+  }
+}
+
+.hero-title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: var(--color-white);
+  margin-bottom: $spacing-6;
+  line-height: $line-height-tight;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-4xl;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    font-size: $font-size-5xl;
+  }
+}
+
+.hero-subtitle {
+  font-size: $font-size-lg;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: $spacing-8;
+  line-height: $line-height-relaxed;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-xl;
+  }
+}
+
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+  
+  @media (min-width: $breakpoint-sm) {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    justify-content: flex-start;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-color: var(--color-white);
+    
+    &:hover {
+      background-color: var(--color-gray-100);
+      border-color: var(--color-gray-100);
+      color: var(--color-primary-dark);
+    }
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-white);
+    
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+    }
+  }
+}
+
+.hero-visual {
+  display: none;
+  
+  @media (min-width: $breakpoint-lg) {
+    display: block;
+  }
+}
+
+.hero-icons {
+  display: flex;
+  gap: $spacing-6;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: $spacing-6 $spacing-8;
+  border-radius: $radius-2xl;
+}
+
+.hero-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}

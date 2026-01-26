@@ -1,0 +1,14 @@
+<div class="timeline">
+  {{ $total := len .Site.Data.steps }}
+  {{ range $index, $step := .Site.Data.steps }}
+  <div class="timeline-item">
+    <div class="timeline-marker">
+      <span class="timeline-number">{{ add $index 1 }}</span>
+    </div>
+    <div class="timeline-content">
+      <h3 class="timeline-title">{{ $step.title }}</h3>
+      <p class="timeline-body">{{ $step.body }}</p>
+    </div>
+  </div>
+  {{ end }}
+</div>

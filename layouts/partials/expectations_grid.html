@@ -1,0 +1,13 @@
+<div class="expectations-grid">
+  {{ range .Site.Data.expectations }}
+  <div class="expectation-card">
+    <h3 class="expectation-title">{{ .title }}</h3>
+    {{ with .intro }}<p class="expectation-intro">{{ . }}</p>{{ end }}
+    <ul class="expectation-list">
+      {{ range .items }}
+      <li>{{ . | markdownify }}</li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+</div>

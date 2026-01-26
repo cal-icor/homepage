@@ -1,0 +1,20 @@
+<div class="materials-grid">
+  {{ range .Site.Data.materials }}
+  <div class="material-card">
+    {{ if .image }}
+    <div class="material-image">
+      <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
+    </div>
+    {{ end }}
+    <div class="material-content">
+      <h3 class="material-title">{{ .title }}</h3>
+      <p class="material-body">{{ .body }}</p>
+      {{ if .link }}
+      <a href="{{ .link }}" class="material-link" target="_blank" rel="noopener">
+        Learn more <span aria-hidden="true">&rarr;</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div>
