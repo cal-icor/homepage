@@ -266,3 +266,40 @@
     color: var(--color-text-muted);
   }
 }
+
+// Staff profiles (contact page)
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: $spacing-8;
+  margin-top: $spacing-6;
+}
+
+.staff-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-3;
+}
+
+.staff-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: $radius-full;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--color-border);
+}
+
+.staff-name {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: var(--color-heading);
+  margin: 0;
+}
+
+.staff-email {
+  font-size: $font-size-sm;
+  color: var(--color-text-light);
+}

@@ -33,3 +33,33 @@ To help us respond effectively, consider sharing:
 - Your timeline for getting started
 
 Don't worry if you don't have all the details yet. We're happy to explore options with you.
+
+## Staff
+
+<div class="staff-grid">
+  <div class="staff-card">
+    <img src="/images/staff/edwin.png" alt="Edwin" class="staff-avatar">
+    <p class="staff-name">Edwin Vargas Navarro</p>
+    <a href="mailto:jedwin321@berkeley.edu" class="staff-email">jedwin321@berkeley.edu</a>
+  </div>
+  <div class="staff-card">
+    <img src="/images/staff/eric.png" alt="Eric Van Dusen" class="staff-avatar">
+    <p class="staff-name">Eric Van Dusen</p>
+    <a href="mailto:ericvd@berkeley.edu" class="staff-email">ericvd@berkeley.edu</a>
+  </div>
+  <div class="staff-card">
+    <img src="/images/staff/john.png" alt="John DeNero" class="staff-avatar">
+    <p class="staff-name">John DeNero</p>
+    <a href="mailto:denero@berkeley.edu" class="staff-email">denero@berkeley.edu</a>
+  </div>
+  <div class="staff-card">
+    <img src="/images/staff/sean.png" alt="Sean Morris" class="staff-avatar">
+    <p class="staff-name">Sean Morris</p>
+    <a href="mailto:sean.smorris@berkeley.edu" class="staff-email">sean.smorris@berkeley.edu</a>
+  </div>
+  <div class="staff-card">
+    <img src="/images/staff/shane.png" alt="Shane Knapp" class="staff-avatar">
+    <p class="staff-name">Shane Knapp</p>
+    <a href="mailto:sknapp@berkeley.edu" class="staff-email">sknapp@berkeley.edu</a>
+  </div>
+</div>
