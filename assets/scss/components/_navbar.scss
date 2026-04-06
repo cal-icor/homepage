@@ -38,6 +38,18 @@
   width: auto;
 }
 
+.navbar-logo-dark {
+  display: none;
+}
+
+[data-theme="dark"] .navbar-logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .navbar-logo-dark {
+  display: block;
+}
+
 .navbar-title {
   font-family: $font-family-heading;
   font-size: $font-size-xl;
