@@ -15,3 +15,8 @@
   body: A browsable, student-friendly online textbook featuring hands-on modules across fields such as health, social science, environmental studies, business, and more. Each module is designed with real-world data, annotated examples, and activities that promote applied learning.
   link: https://cal-icor.github.io/textbook
   image: /images/materials/jupyterdoc.png
+
+- title: Intro Calculus in Jupyter
+  body: Open-source Jupyter notebooks for Calculus. Students explore limits, derivatives, extrema, Newton's Method, area under a curve, and the Fundamental Theorem of Calculus through interactive visualizations and guided coding activities.
+  link: https://github.com/cal-icor/calculus
+  image: /images/materials/calculus.png

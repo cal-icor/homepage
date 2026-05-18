@@ -1,0 +1,9 @@
+quotes:
+  - quote: I think once I knew what I was supposed to do, the notebook did help me to understand limits a lot better, so that is one good characteristic.
+    attribution: Calculus student
+  - quote: I thought this assignment was challenging but in a good way. This is my first experience with coding and I learned so much in just the icebreaker and even though I was stuck and I told myself I would come back to it a few days later I eventually got it and it's mostly trial and error and trying again.
+    attribution: First time Jupyter user
+  - quote: The ICOR program at UC Berkeley has had a meaningful impact on both my students and myself by creating connections between programming and Calculus I content. Through this collaboration, we developed and refined Jupyter notebooks over several semesters that allow students to explore core calculus topics computationally. The result has been a set of classroom tools that help students experience calculus in a new way while simultaneously building confidence with programming and computational thinking.
+    name: Kathy Williamson
+    role: Mathematics Instructor
+    institution: Laney College

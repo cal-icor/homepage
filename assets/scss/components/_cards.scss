@@ -102,14 +102,16 @@
 }
 
 .materials-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: $spacing-8;
   justify-content: center;
-  
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .material-card {
-    flex: 1 1 300px;
-    max-width: 400px;
+    max-width: none;
   }
 }
 

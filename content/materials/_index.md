@@ -17,4 +17,4 @@ Our materials are designed to integrate seamlessly into existing courses or serv
 
 ## What You'll Find Below
 
-Below you'll find three key components of the Cal-ICOR resource ecosystem. Together, they illustrate the kind of curriculum, infrastructure, and support partners can expect.
+Below you'll find four key components of the Cal-ICOR resource ecosystem. Together, they illustrate the kind of curriculum, infrastructure, and support partners can expect.

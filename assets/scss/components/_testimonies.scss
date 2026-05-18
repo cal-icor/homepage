@@ -1,0 +1,125 @@
+// Testimonies
+// ===========
+
+.testimonies-section {
+  background-color: var(--color-background-alt);
+
+  .section-title,
+  .section-subtitle {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .section-subtitle {
+    max-width: none;
+    margin-bottom: $spacing-8;
+  }
+}
+
+.quotes-grid {
+  display: grid;
+  gap: $spacing-6;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.quote-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: $spacing-6;
+  padding-top: $spacing-10;
+  background-color: var(--color-surface);
+  border-radius: $radius-xl;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow $transition-base, border-color $transition-base;
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: $spacing-4;
+    left: $spacing-5;
+    font-size: 3rem;
+    line-height: 1;
+    font-family: Georgia, serif;
+    color: var(--color-primary);
+    opacity: 0.35;
+    pointer-events: none;
+    transition: opacity $transition-base;
+  }
+
+  blockquote {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    p {
+      font-size: $font-size-base;
+      color: var(--color-text);
+      line-height: $line-height-relaxed;
+      margin: 0;
+      font-style: italic;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+    &:hover,
+    &:focus-within {
+      transform: scale(1.03) translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+
+      &::before {
+        opacity: 0.55;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &:hover,
+    &:focus-within {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+
+      &::before {
+        opacity: 0.55;
+      }
+    }
+  }
+}
+
+.quote-card--instructor {
+  border-left: 4px solid var(--color-primary);
+}
+
+.quote-attribution {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+  margin-top: $spacing-4;
+  margin-bottom: 0;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+
+.quote-name {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: var(--color-heading);
+  font-style: normal;
+}
+
+.quote-role {
+  font-size: $font-size-sm;
+  color: var(--color-text-muted);
+}

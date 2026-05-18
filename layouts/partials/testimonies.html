@@ -1,0 +1,26 @@
+{{ with .Site.Data.testimonies }}
+<section class="section testimonies-section" aria-labelledby="testimonies-heading">
+  <div class="container">
+    <h2 id="testimonies-heading" class="section-title">What Students and Instructors Are Saying</h2>
+    <p class="section-subtitle">Feedback from calculus classrooms using Cal-ICOR Jupyter notebooks.</p>
+
+    <div class="quotes-grid">
+      {{ range .quotes }}
+      <figure class="quote-card{{ if .name }} quote-card--instructor{{ end }}">
+        <blockquote>
+          <p>{{ .quote }}</p>
+        </blockquote>
+        <figcaption class="quote-attribution">
+          {{ if .name }}
+          <cite class="quote-name">{{ .name }}</cite>
+          <span class="quote-role">{{ .role }}, {{ .institution }}</span>
+          {{ else }}
+          &mdash; {{ .attribution }}
+          {{ end }}
+        </figcaption>
+      </figure>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
