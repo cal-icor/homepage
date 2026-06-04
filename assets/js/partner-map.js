@@ -75,12 +75,22 @@
   }
 
   function createDotIcon(active) {
+    var size = active ? 16 : 14;
+    var dot = active ? 12 : 10;
+    var fill = active ? '#0e7490' : '#1a56db';
     return L.divIcon({
       className: 'partner-map-dot-wrap' + (active ? ' partner-map-dot-wrap--active' : ''),
-      html: '<span class="partner-map-dot" aria-hidden="true"></span>',
-      iconSize: active ? [18, 18] : [14, 14],
-      iconAnchor: active ? [9, 9] : [7, 7],
-      popupAnchor: [0, active ? -10 : -8],
+      html:
+        '<span class="partner-map-dot" style="display:block;width:' +
+        dot +
+        'px;height:' +
+        dot +
+        'px;background:' +
+        fill +
+        ';border:2px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.35);" aria-hidden="true"></span>',
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -(size / 2) - 4],
     });
   }
 
@@ -98,8 +108,6 @@
 
     var markersById = {};
     var activeId = null;
-    var dotIcon = createDotIcon(false);
-    var dotIconActive = createDotIcon(true);
 
     function isDark() {
       return document.documentElement.getAttribute('data-theme') === 'dark';
@@ -184,7 +192,7 @@
 
     function setMarkerIcons() {
       Object.keys(markersById).forEach(function (id) {
-        markersById[id].setIcon(id === activeId ? dotIconActive : dotIcon);
+        markersById[id].setIcon(createDotIcon(id === activeId));
       });
     }
 
@@ -216,7 +224,9 @@
     }
 
     partners.forEach(function (partner) {
-      var marker = L.marker([partner.lat, partner.lng], { icon: dotIcon }).addTo(map);
+      var marker = L.marker([partner.lat, partner.lng], {
+        icon: createDotIcon(false),
+      }).addTo(map);
 
       marker.bindPopup(popupHtml(partner), {
         className: 'partner-map-leaflet-popup',
