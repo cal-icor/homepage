@@ -126,15 +126,6 @@
     border-radius: $radius-xl;
   }
 
-  .leaflet-control-attribution {
-    font-size: 10px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-}
-
-[data-theme="dark"] .partners-section .leaflet-control-attribution {
-  background: rgba(31, 41, 55, 0.92);
-  color: var(--color-text-muted);
 }
 
 .partner-map-leaflet-popup .leaflet-popup-content-wrapper {
@@ -142,7 +133,21 @@
   color: #1f2937;
   border-radius: $radius-lg;
   box-shadow: $shadow-xl;
-  padding: 0;
+  padding: $spacing-2 $spacing-2 0;
+}
+
+.partner-map-leaflet-popup .leaflet-popup-close-button {
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #6b7280;
+
+  &:hover {
+    color: #1f2937;
+  }
 }
 
 .partner-map-leaflet-popup .leaflet-popup-tip {

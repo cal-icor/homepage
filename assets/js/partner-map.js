@@ -5,7 +5,8 @@
   );
 
   var MARKER_TARGET_X = 0.5;
-  var MARKER_TARGET_Y = 0.84;
+  var MARKER_TARGET_Y = 0.78;
+  var POPUP_VIEW_PADDING = 20;
 
   function escapeHtml(str) {
     return String(str)
@@ -121,20 +122,20 @@
 
     var map = L.map(canvas, {
       scrollWheelZoom: true,
-      minZoom: 5,
+      attributionControl: false,
+      minZoom: 6,
       maxZoom: 12,
-      maxBounds: CA_BOUNDS.pad(0.05),
-      maxBoundsViscosity: 0.85,
+      maxBounds: CA_BOUNDS,
+      maxBoundsViscosity: 1.0,
     });
 
     var tileLayer = L.tileLayer(tileUrl(), {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      attribution: '',
       subdomains: 'abcd',
       maxZoom: 19,
     }).addTo(map);
 
-    map.fitBounds(CA_BOUNDS, { padding: [32, 32] });
+    map.fitBounds(CA_BOUNDS, { padding: [12, 12], maxZoom: 7 });
 
     function positionMarkerInMapFrame(marker, done) {
       map.invalidateSize();
@@ -158,6 +159,61 @@
       }
     }
 
+    function ensurePopupInView(marker, done) {
+      var popup = marker.getPopup();
+      if (!popup || !popup.isOpen()) {
+        if (done) done();
+        return;
+      }
+
+      map.invalidateSize();
+      var popupEl = popup.getElement();
+      if (!popupEl) {
+        if (done) done();
+        return;
+      }
+
+      var mapRect = map.getContainer().getBoundingClientRect();
+      var popupRect = popupEl.getBoundingClientRect();
+      var pad = POPUP_VIEW_PADDING;
+      var dx = 0;
+      var dy = 0;
+
+      if (popupRect.left < mapRect.left + pad) {
+        dx = popupRect.left - (mapRect.left + pad);
+      } else if (popupRect.right > mapRect.right - pad) {
+        dx = popupRect.right - (mapRect.right - pad);
+      }
+
+      if (popupRect.top < mapRect.top + pad) {
+        dy = popupRect.top - (mapRect.top + pad);
+      } else if (popupRect.bottom > mapRect.bottom - pad) {
+        dy = popupRect.bottom - (mapRect.bottom - pad);
+      }
+
+      if (!dx && !dy) {
+        if (done) done();
+        return;
+      }
+
+      map.panBy([dx, dy], { animate: true, duration: 0.25 });
+      if (done) {
+        map.once('moveend', function onFitEnd() {
+          map.off('moveend', onFitEnd);
+          done();
+        });
+      }
+    }
+
+    function openMarkerPopup(marker, done) {
+      marker.openPopup();
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          ensurePopupInView(marker, done);
+        });
+      });
+    }
+
     function centerOnMarker(marker, thenOpenPopup) {
       var latlng = marker.getLatLng();
       var zoom = Math.max(map.getZoom(), 8);
@@ -168,7 +224,7 @@
         map.off('moveend', onFlyEnd);
         if (!thenOpenPopup) return;
         positionMarkerInMapFrame(marker, function () {
-          marker.openPopup();
+          openMarkerPopup(marker);
         });
       });
     }
@@ -218,7 +274,7 @@
         centerOnMarker(marker, true);
       } else {
         positionMarkerInMapFrame(marker, function () {
-          marker.openPopup();
+          openMarkerPopup(marker);
         });
       }
     }
