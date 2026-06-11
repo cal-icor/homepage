@@ -1,16 +1,28 @@
-<section class="section logo-section">
+<section class="section partners-section" id="partner-institutions">
   <div class="container">
     <h2 class="section-title section-title-sm">Current Partner Institutions</h2>
+    <p class="partners-hint">Click a logo to open its marker on the map below. Click a dot for the institution logo and website.</p>
     <div class="logo-grid">
       {{ range .Site.Data.partners }}
-      <a href="{{ .url }}" target="_blank" rel="noopener" class="logo-item" title="{{ .name }}">
+      <button
+        type="button"
+        class="logo-item"
+        data-partner-id="{{ .id }}"
+        data-partner-name="{{ .name }}"
+        data-partner-logo="{{ .logo }}"
+        data-partner-url="{{ .url }}"
+        data-partner-lat="{{ .lat }}"
+        data-partner-lng="{{ .lng }}"
+        title="{{ .name }} — show on map"
+      >
         {{ if .logo }}
         <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
         {{ else }}
         <span class="logo-text">{{ .name }}</span>
         {{ end }}
-      </a>
+      </button>
       {{ end }}
     </div>
+    {{ partial "partner_map.html" . }}
   </div>
 </section>

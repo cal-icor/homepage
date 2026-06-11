@@ -24,7 +24,7 @@
   
   <!-- Main Stylesheet -->
   {{ $scss := resources.Get "scss/main.scss" }}
-  {{ $style := $scss | toCSS | minify }}
+  {{ $style := $scss | css.Sass | minify }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   
   {{ block "head" . }}{{ end }}

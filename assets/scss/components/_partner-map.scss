@@ -1,0 +1,218 @@
+// Partner Map (Leaflet)
+// =====================
+
+.partners-section {
+  background-color: var(--color-surface);
+  padding: $spacing-12 0 $spacing-16;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.partners-hint {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: $font-size-sm;
+  margin: (-$spacing-4) auto $spacing-6;
+  max-width: 40rem;
+}
+
+.partners-section .logo-grid {
+  margin-bottom: $spacing-10;
+  align-items: center;
+}
+
+.partner-map-block {
+  margin-bottom: 0;
+}
+
+.partner-map-wrapper {
+  position: sticky;
+  top: $spacing-20;
+  z-index: 30;
+  border-radius: $radius-xl;
+  border: 1px solid var(--color-border);
+  box-shadow: $shadow-lg;
+}
+
+.partner-map-canvas {
+  width: 100%;
+  height: 420px;
+  background: var(--color-gray-100);
+  border-radius: $radius-xl;
+
+  @media (min-width: $breakpoint-md) {
+    height: 460px;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    height: 500px;
+  }
+}
+
+.partners-section .logo-item {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  width: 130px;
+  height: 48px;
+  padding: $spacing-1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    width: 120px;
+    height: 40px;
+    max-width: 120px;
+    max-height: 40px;
+    object-fit: contain;
+    object-position: center;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter $transition-base, opacity $transition-base;
+  }
+
+  &:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+.partners-section .logo-item--active {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: $radius-md;
+
+  img {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+.partner-map-dot-wrap {
+  background: transparent !important;
+  border: none !important;
+}
+
+.partners-section .leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.partner-map-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #1a56db;
+  border: 2px solid #ffffff;
+  border-radius: $radius-full;
+  box-shadow: $shadow-md;
+}
+
+.partner-map-dot-wrap--active .partner-map-dot {
+  width: 14px;
+  height: 14px;
+  background: #0e7490;
+  border-width: 3px;
+}
+
+.partners-section {
+  .leaflet-container {
+    font-family: $font-family-sans;
+    background: var(--color-gray-100);
+    border-radius: $radius-xl;
+  }
+
+}
+
+.partner-map-leaflet-popup .leaflet-popup-content-wrapper {
+  background: #ffffff;
+  color: #1f2937;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-xl;
+  padding: $spacing-2 $spacing-2 0;
+}
+
+.partner-map-leaflet-popup .leaflet-popup-close-button {
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #6b7280;
+
+  &:hover {
+    color: #1f2937;
+  }
+}
+
+.partner-map-leaflet-popup .leaflet-popup-tip {
+  background: #ffffff;
+}
+
+.partner-map-leaflet-popup .leaflet-popup-content {
+  margin: $spacing-3 $spacing-4;
+  line-height: $line-height-base;
+  width: 180px !important;
+}
+
+.partner-map-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: $spacing-2;
+  text-align: center;
+  width: 180px;
+}
+
+.partner-map-popup-logo-wrap {
+  width: 160px;
+  height: 48px;
+  min-height: 48px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-1 $spacing-2;
+  background: #f3f4f6;
+  border-radius: $radius-md;
+  box-sizing: border-box;
+}
+
+.partner-map-popup-logo {
+  display: block;
+  width: 140px;
+  height: 40px;
+  max-width: 140px;
+  max-height: 40px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.partner-map-popup-name {
+  margin: 0;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: #1f2937;
+}
+
+.partner-map-popup-link {
+  display: inline-block;
+  padding: $spacing-2 $spacing-4;
+  margin-bottom: 3px;
+  background: #1a56db;
+  color: #ffffff !important;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  border-radius: $radius-md;
+
+  &:hover {
+    background: #1e429f;
+    text-decoration: none;
+  }
+}
