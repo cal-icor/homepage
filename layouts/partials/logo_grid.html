@@ -1,28 +1,50 @@
 <section class="section partners-section" id="partner-institutions">
   <div class="container">
     <h2 class="section-title section-title-sm">Current Partner Institutions</h2>
-    <p class="partners-hint">Click a logo to open its marker on the map below. Click a dot for the institution logo and website.</p>
-    <div class="logo-grid">
-      {{ range .Site.Data.partners }}
-      <button
-        type="button"
-        class="logo-item"
-        data-partner-id="{{ .id }}"
-        data-partner-name="{{ .name }}"
-        data-partner-logo="{{ .logo }}"
-        data-partner-url="{{ .url }}"
-        data-partner-lat="{{ .lat }}"
-        data-partner-lng="{{ .lng }}"
-        title="{{ .name }} — show on map"
-      >
-        {{ if .logo }}
-        <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
-        {{ else }}
-        <span class="logo-text">{{ .name }}</span>
-        {{ end }}
-      </button>
-      {{ end }}
+    <p class="partners-hint">Select a college to locate it on the map.</p>
+
+    <div class="partner-toolbar">
+      <label class="partner-search">
+        <span class="partner-search-icon" aria-hidden="true"></span>
+        <span class="sr-only">Search partner institutions</span>
+        <input id="partner-search-input" type="search" placeholder="Search colleges" autocomplete="off">
+      </label>
     </div>
-    {{ partial "partner_map.html" . }}
+
+    <div class="partner-explorer">
+      <div class="partner-list-panel">
+        <div id="partner-list" class="partner-list" role="listbox" aria-label="California partner institutions">
+          {{ range sort .Site.Data.partners "name" }}
+          <button
+            type="button"
+            class="partner-list-item"
+            role="option"
+            aria-selected="false"
+            data-partner-id="{{ .id }}"
+            data-partner-name="{{ .name }}"
+            data-partner-logo="{{ .logo }}"
+            data-partner-url="{{ .url }}"
+            data-partner-lat="{{ .lat }}"
+            data-partner-lng="{{ .lng }}"
+            title="{{ .name }} — show on map"
+          >
+            <span class="partner-list-avatar" aria-hidden="true">
+              {{ if .logo }}
+              <img src="{{ .logo }}" alt="" loading="lazy">
+              {{ else }}
+              <span class="partner-list-initials">{{ substr .name 0 2 }}</span>
+              {{ end }}
+            </span>
+            <span class="partner-list-name">{{ .name }}</span>
+          </button>
+          {{ end }}
+        </div>
+        <p id="partner-list-footer" class="partner-list-footer">{{ len .Site.Data.partners }} colleges · scroll for more</p>
+      </div>
+
+      <div class="partner-map-panel">
+        {{ partial "partner_map.html" . }}
+      </div>
+    </div>
   </div>
 </section>
