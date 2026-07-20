@@ -200,7 +200,7 @@
 
 // Intro section (homepage)
 .intro-section {
-  background-color: var(--color-surface);
+  background: linear-gradient(to bottom, var(--color-surface) 0%, var(--color-map-tint) 100%);
   padding-top: $spacing-12;
   padding-bottom: $spacing-12;
 }

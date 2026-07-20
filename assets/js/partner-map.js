@@ -20,6 +20,25 @@
     return escapeHtml(str).replace(/'/g, '&#39;');
   }
 
+  function initialsFor(name) {
+    var parts = String(name)
+      .replace(/\(.*?\)/g, '')
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean);
+    if (!parts.length) return '?';
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+
+  function showAvatarInitials(avatar, name) {
+    avatar.innerHTML = '';
+    var initials = document.createElement('span');
+    initials.className = 'partner-list-initials';
+    initials.textContent = initialsFor(name);
+    avatar.appendChild(initials);
+  }
+
   function logoUrl(path) {
     if (!path) return '';
     path = String(path).trim();
@@ -34,7 +53,7 @@
 
   function readPartnersFromDom() {
     var partners = [];
-    document.querySelectorAll('.logo-item[data-partner-id]').forEach(function (el) {
+    document.querySelectorAll('.partner-list-item[data-partner-id]').forEach(function (el) {
       var lat = parseFloat(el.getAttribute('data-partner-lat'));
       var lng = parseFloat(el.getAttribute('data-partner-lng'));
       if (!el.getAttribute('data-partner-id') || isNaN(lat) || isNaN(lng)) return;
@@ -229,21 +248,13 @@
       });
     }
 
-    function scrollToMap(callback) {
-      var mapEl =
-        document.querySelector('.partner-map-wrapper') ||
-        document.getElementById('partner-map-canvas');
-      if (mapEl) {
-        mapEl.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'nearest',
-        });
+    function scrollListItemIntoView(id) {
+      var item = document.querySelector(
+        '.partner-list-item[data-partner-id="' + id + '"]'
+      );
+      if (item) {
+        item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-      window.setTimeout(function () {
-        map.invalidateSize();
-        if (callback) callback();
-      }, 500);
     }
 
     function setMarkerIcons() {
@@ -266,9 +277,12 @@
       setMarkerIcons();
       marker.setPopupContent(popupHtml(partner));
 
-      document.querySelectorAll('.logo-item[data-partner-id]').forEach(function (el) {
-        el.classList.toggle('logo-item--active', el.getAttribute('data-partner-id') === id);
+      document.querySelectorAll('.partner-list-item[data-partner-id]').forEach(function (el) {
+        var isActive = el.getAttribute('data-partner-id') === id;
+        el.classList.toggle('partner-list-item--active', isActive);
+        el.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
+      scrollListItemIntoView(id);
 
       if (options.fly !== false) {
         centerOnMarker(marker, true);
@@ -299,15 +313,46 @@
       markersById[partner.id] = marker;
     });
 
-    document.querySelectorAll('.logo-item[data-partner-id]').forEach(function (el) {
+    document.querySelectorAll('.partner-list-item[data-partner-id]').forEach(function (el) {
+      var avatar = el.querySelector('.partner-list-avatar');
+      var img = avatar && avatar.querySelector('img');
+      if (img) {
+        img.addEventListener('error', function () {
+          showAvatarInitials(avatar, el.getAttribute('data-partner-name') || '');
+        });
+      }
+
       el.addEventListener('click', function (e) {
         e.preventDefault();
         var id = el.getAttribute('data-partner-id');
-        scrollToMap(function () {
-          openPartner(id, { fly: true });
-        });
+        openPartner(id, { fly: true });
       });
     });
+
+    var search = document.getElementById('partner-search-input');
+    var footer = document.getElementById('partner-list-footer');
+
+    function filterPartners() {
+      var query = String(search ? search.value : '').trim().toLowerCase();
+      var visibleCount = 0;
+
+      document.querySelectorAll('.partner-list-item[data-partner-id]').forEach(function (el) {
+        var name = (el.getAttribute('data-partner-name') || '').toLowerCase();
+        var isVisible = !query || name.indexOf(query) !== -1;
+        el.hidden = !isVisible;
+        if (isVisible) visibleCount += 1;
+      });
+
+      if (footer) {
+        footer.textContent = query
+          ? visibleCount + ' of ' + partners.length + ' colleges shown'
+          : partners.length + ' colleges · scroll for more';
+      }
+    }
+
+    if (search) {
+      search.addEventListener('input', filterPartners);
+    }
 
     var themeObserver = new MutationObserver(function () {
       tileLayer.setUrl(tileUrl());
@@ -318,6 +363,10 @@
     });
 
     map.whenReady(function () {
+      map.invalidateSize();
+    });
+
+    window.addEventListener('resize', function () {
       map.invalidateSize();
     });
   }
