@@ -108,6 +108,13 @@
   lat: 35.3490
   lng: -119.1029
 
+- id: csu-dominguez-hills
+  name: CSU Dominguez Hills
+  logo: /images/logos/partners/csudominguez.png
+  url: https://www.csudh.edu
+  lat: 33.8634
+  lng: -118.2561
+
 # California Community Colleges
 - id: folsom-lake
   name: Folsom Lake College
