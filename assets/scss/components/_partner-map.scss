@@ -361,19 +361,39 @@
   color: #1f2937;
 }
 
-.partner-map-popup-link {
-  display: inline-block;
-  padding: $spacing-2 $spacing-4;
+.partner-map-popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
   margin-bottom: 3px;
+}
+
+.partner-map-popup-link {
+  display: block;
+  padding: $spacing-2 $spacing-4;
   background: #1a56db;
   color: #ffffff !important;
   font-size: $font-size-sm;
   font-weight: $font-weight-semibold;
   text-decoration: none;
   border-radius: $radius-md;
+  border: 1px solid transparent;
+  box-sizing: border-box;
 
   &:hover {
     background: #1e429f;
     text-decoration: none;
+  }
+}
+
+.partner-map-popup-link--hub {
+  background: #ffffff;
+  color: #1a56db !important;
+  border-color: #1a56db;
+
+  &:hover {
+    background: #eff6ff;
+    color: #1e429f !important;
+    border-color: #1e429f;
   }
 }

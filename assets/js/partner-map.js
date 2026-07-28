@@ -62,6 +62,7 @@
         name: el.getAttribute('data-partner-name') || '',
         logo: el.getAttribute('data-partner-logo') || '',
         url: el.getAttribute('data-partner-url') || '',
+        hub: el.getAttribute('data-partner-hub') || '',
         lat: lat,
         lng: lng,
       });
@@ -81,15 +82,23 @@
         '</div>'
       : '';
     var siteUrl = partner.url || '#';
+    var hubLink = partner.hub
+      ? '<a class="partner-map-popup-link partner-map-popup-link--hub" href="' +
+        escapeAttr(partner.hub) +
+        '" target="_blank" rel="noopener">View Hub</a>'
+      : '';
     return (
       '<div class="partner-map-popup">' +
       logoBlock +
       '<p class="partner-map-popup-name">' +
       escapeHtml(partner.name) +
       '</p>' +
+      '<div class="partner-map-popup-actions">' +
       '<a class="partner-map-popup-link" href="' +
       escapeAttr(siteUrl) +
       '" target="_blank" rel="noopener">Visit website</a>' +
+      hubLink +
+      '</div>' +
       '</div>'
     );
   }

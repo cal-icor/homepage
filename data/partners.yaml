@@ -1,11 +1,12 @@
 # Partner institutions - Fall 2025
-# Fields: id, name, logo, url, lat, lng
+# Fields: id, name, logo, url, hub, lat, lng
 
 # UC Partners
 - id: uc-berkeley
   name: UC Berkeley
   logo: /images/logos/partners/ucb.png
   url: https://www.berkeley.edu
+  hub: https://jupyter.cal-icor.org
   lat: 37.8719
   lng: -122.2585
 
@@ -13,6 +14,7 @@
   name: UC Santa Cruz
   logo: /images/logos/partners/ucsc.png
   url: https://www.ucsc.edu
+  hub: https://ucsc.jupyter.cal-icor.org
   lat: 36.9914
   lng: -122.0583
 
@@ -21,6 +23,7 @@
   name: CSU Long Beach
   logo: /images/logos/partners/csulb.jpg
   url: https://www.csulb.edu
+  hub: https://csulb.jupyter.cal-icor.org
   lat: 33.7838
   lng: -118.1141
 
@@ -28,6 +31,7 @@
   name: CSU Maritime
   logo: /images/logos/partners/csu-maritime.png
   url: https://www.csum.edu
+  hub: https://csum.jupyter.cal-icor.org
   lat: 38.0969
   lng: -122.2283
 
@@ -35,6 +39,7 @@
   name: CSU Sacramento
   logo: /images/logos/partners/csus.png
   url: https://www.csus.edu
+  hub: https://csus.jupyter.cal-icor.org
   lat: 38.5594
   lng: -121.4247
 
@@ -42,6 +47,7 @@
   name: CSU Fullerton
   logo: /images/logos/partners/csuf.png
   url: https://www.fullerton.edu
+  hub: https://csuf.jupyter.cal-icor.org
   lat: 33.8829
   lng: -117.8869
 
@@ -49,6 +55,7 @@
   name: CSU San Jose
   logo: /images/logos/partners/sjsu.png
   url: https://www.sjsu.edu
+  hub: https://csusj.jupyter.cal-icor.org
   lat: 37.3352
   lng: -121.8811
 
@@ -56,6 +63,7 @@
   name: CSU Fresno
   logo: /images/logos/partners/csufresno.png
   url: https://www.fresnostate.edu/
+  hub: https://csufresno.jupyter.cal-icor.org
   lat: 36.8134
   lng: -119.7465
 
@@ -63,6 +71,7 @@
   name: CSU Los Angeles
   logo: /images/logos/partners/csula.png
   url: https://www.calstatela.edu/
+  hub: https://csula.jupyter.cal-icor.org
   lat: 34.0669
   lng: -118.1689
 
@@ -70,6 +79,7 @@
   name: CSU Northridge
   logo: /images/logos/partners/csun.png
   url: https://www.csun.edu/
+  hub: https://csun.jupyter.cal-icor.org
   lat: 34.2400
   lng: -118.5292
 
@@ -77,6 +87,7 @@
   name: CSU Chico State
   logo: /images/logos/partners/csuchico.png
   url: https://www.csuchico.edu/
+  hub: https://chicostate.jupyter.cal-icor.org
   lat: 39.7285
   lng: -121.8444
 
@@ -84,6 +95,7 @@
   name: CSU Sonoma
   logo: /images/logos/partners/csusonoma.png
   url: https://www.sonoma.edu/
+  hub: https://csusonoma.jupyter.cal-icor.org
   lat: 38.3390
   lng: -122.6753
 
@@ -91,6 +103,7 @@
   name: CSU Monterey Bay
   logo: /images/logos/partners/csumb.png
   url: https://www.csumb.edu
+  hub: https://csumb.jupyter.cal-icor.org
   lat: 36.6538
   lng: -121.7979
 
@@ -98,6 +111,7 @@
   name: CSU East Bay
   logo: /images/logos/partners/csueb.png
   url: https://www.csueastbay.edu
+  hub: https://csueb.jupyter.cal-icor.org
   lat: 37.6568
   lng: -122.0568
 
@@ -105,6 +119,7 @@
   name: CSU Bakersfield
   logo: /images/logos/partners/csub.png
   url: https://www.csub.edu
+  hub: https://csub.jupyter.cal-icor.org
   lat: 35.3490
   lng: -119.1029
 
@@ -120,6 +135,7 @@
   name: Folsom Lake College
   logo: /images/logos/partners/flc.png
   url: https://www.flc.losrios.edu
+  hub: https://folsomlake.jupyter.cal-icor.org
   lat: 38.6770
   lng: -121.1760
 
@@ -127,6 +143,7 @@
   name: Diablo Valley College
   logo: /images/logos/partners/dvc.png
   url: https://www.dvc.edu
+  hub: https://dvc.jupyter.cal-icor.org
   lat: 37.9690
   lng: -122.0521
 
@@ -134,6 +151,7 @@
   name: Fresno City College
   logo: /images/logos/partners/fresno.png
   url: https://www.fresnocitycollege.edu/
+  hub: https://fresno.jupyter.cal-icor.org
   lat: 36.7378
   lng: -119.7871
 
@@ -142,5 +160,6 @@
   name: University of Southern California
   logo: /images/logos/partners/usc.png
   url: https://www.usc.edu/
+  hub: https://usc.jupyter.cal-icor.org
   lat: 34.0224
   lng: -118.2851
