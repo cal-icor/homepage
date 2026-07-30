@@ -127,8 +127,25 @@
   name: CSU Dominguez Hills
   logo: /images/logos/partners/csudominguez.png
   url: https://www.csudh.edu
+  hub: https://csudh.jupyter.cal-icor.org
   lat: 33.8634
   lng: -118.2561
+
+- id: cal-poly-pomona
+  name: Cal Poly Pomona
+  logo: /images/logos/partners/cpp.png
+  url: https://www.cpp.edu
+  hub: https://cpp.jupyter.cal-icor.org
+  lat: 34.0569
+  lng: -117.8217
+
+- id: csu-san-bernardino
+  name: CSU San Bernardino
+  logo: /images/logos/partners/csusb.png
+  url: https://www.csusb.edu
+  hub: https://csusb.jupyter.cal-icor.org
+  lat: 34.1814
+  lng: -117.3239
 
 # California Community Colleges
 - id: folsom-lake
