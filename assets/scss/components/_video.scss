@@ -1,5 +1,5 @@
-// Homepage video section
-// =======================
+// Homepage video section + hub demos
+// ==================================
 
 .video-section {
   background-color: var(--color-surface);
@@ -24,4 +24,58 @@
     height: 100%;
     border: 0;
   }
+}
+
+// 2i2c-style muted autoplay looping feature demo
+.hub-demos-section {
+  background-color: var(--color-background);
+  text-align: center;
+}
+
+.hub-demo--featured {
+  margin: $spacing-10 auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+  max-width: 1100px;
+  text-align: left;
+}
+
+.hub-demo-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-border);
+  box-shadow: $shadow-lg;
+}
+
+.hub-demo-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--color-gray-900);
+}
+
+.hub-demo-caption {
+  padding: 0 $spacing-1;
+  max-width: 46rem;
+}
+
+.hub-demo-title {
+  margin: 0 0 $spacing-2;
+  font-family: $font-family-heading;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: var(--color-heading);
+}
+
+.hub-demo-text {
+  margin: 0;
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  color: var(--color-text-light);
 }

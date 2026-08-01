@@ -20,3 +20,14 @@ _site/
 # Misc
 *.log
 .hugo_build.lock
+
+# Local demo recording scratch (keep README + recorder script)
+scripts/demo-recording/raw-*.webm
+scripts/demo-recording/frames/
+scripts/demo-recording/_pw_videos/
+scripts/demo-recording/notebook/
+scripts/demo-recording/jupyter_config/
+scripts/demo-recording/*.webm
+!scripts/demo-recording/README.md
+!scripts/demo-recording/record_jupyter_demo.py
+!scripts/demo-recording/cal-icor-notebook-demo.ipynb
