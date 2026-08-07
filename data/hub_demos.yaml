@@ -1,0 +1,32 @@
+# Hub feature demos (2i2c-style muted autoplay looping videos)
+# Fields: id, title, caption, video, poster, logo
+#
+# How to update: see scripts/demo-recording/README.md
+
+- id: jupyter-notebook
+  title: Jupyter
+  caption: Notebooks in the browser
+  video: /videos/jupyter-notebook.mp4
+  poster: /videos/jupyter-notebook.jpg
+  logo: /images/logos/tools/jupyter.svg
+
+- id: vscode
+  title: VS Code
+  caption: Full IDE workflows
+  video: /videos/vscode.mp4
+  poster: /videos/vscode.jpg
+  logo: /images/logos/tools/vscode.svg
+
+- id: rstudio
+  title: RStudio
+  caption: R analysis & plots
+  video: /videos/rstudio.mp4
+  poster: /videos/rstudio.jpg
+  logo: /images/logos/tools/rstudio.svg
+
+- id: sagemath
+  title: SageMath
+  caption: Symbolic math & plots
+  video: /videos/sagemath.mp4
+  poster: /videos/sagemath.jpg
+  logo: /images/logos/tools/sagemath.svg
