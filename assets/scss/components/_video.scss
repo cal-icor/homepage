@@ -26,30 +26,46 @@
   }
 }
 
-// 2i2c-style muted autoplay looping feature demo
+// Compact side-by-side muted autoplay tool demos
 .hub-demos-section {
   background-color: var(--color-background);
   text-align: center;
 }
 
-.hub-demo--featured {
-  margin: $spacing-10 auto 0;
+.hub-demos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-6;
+  margin-top: $spacing-10;
+  text-align: left;
+
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: $spacing-5;
+  }
+}
+
+.hub-demo {
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: $spacing-5;
-  max-width: 1100px;
-  text-align: left;
+  gap: $spacing-3;
+  min-width: 0;
 }
 
 .hub-demo-media {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: $radius-xl;
+  border-radius: $radius-lg;
   overflow: hidden;
   background-color: var(--color-gray-100);
   border: 1px solid var(--color-border);
-  box-shadow: $shadow-lg;
+  box-shadow: $shadow-md;
 }
 
 .hub-demo-video {
@@ -62,20 +78,34 @@
 
 .hub-demo-caption {
   padding: 0 $spacing-1;
-  max-width: 46rem;
+}
+
+.hub-demo-brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-2;
+  min-width: 0;
+}
+
+.hub-demo-logo {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .hub-demo-title {
-  margin: 0 0 $spacing-2;
+  margin: 0;
   font-family: $font-family-heading;
-  font-size: $font-size-2xl;
+  font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
   color: var(--color-heading);
+  line-height: $line-height-tight;
 }
 
 .hub-demo-text {
-  margin: 0;
-  font-size: $font-size-lg;
+  margin: $spacing-1 0 0;
+  font-size: $font-size-sm;
   line-height: $line-height-relaxed;
   color: var(--color-text-light);
 }

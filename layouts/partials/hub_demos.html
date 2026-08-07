@@ -1,29 +1,40 @@
 <section class="section hub-demos-section" aria-labelledby="hub-demos-heading">
   <div class="container">
     <h2 id="hub-demos-heading" class="section-title">What's in a Cal-ICOR hub?</h2>
-    <p class="section-subtitle">Each partner institution gets a cloud JupyterHub with the tools instructors and students use every day. A short looping demo — no sound, no click required.</p>
+    <p class="section-subtitle">Each partner institution gets a cloud JupyterHub with the tools instructors and students use every day. Short looping demos — no sound, no click required.</p>
 
-    {{ range first 1 .Site.Data.hub_demos }}
-    <figure class="hub-demo hub-demo--featured">
-      <div class="hub-demo-media">
-        <video
-          class="hub-demo-video"
-          muted
-          playsinline
-          autoplay
-          loop
-          preload="metadata"
-          {{ with .poster }}poster="{{ . }}"{{ end }}
-          aria-label="{{ .title }} demo"
-        >
-          <source src="{{ .video }}" type="video/mp4">
-        </video>
-      </div>
-      <figcaption class="hub-demo-caption">
-        <p class="hub-demo-title">{{ .title }}</p>
-        <p class="hub-demo-text">{{ .caption }}</p>
-      </figcaption>
-    </figure>
-    {{ end }}
+    <div class="hub-demos-grid">
+      {{ range .Site.Data.hub_demos }}
+      <figure class="hub-demo">
+        <div class="hub-demo-media">
+          {{ if .video }}
+          <video
+            class="hub-demo-video"
+            muted
+            playsinline
+            autoplay
+            loop
+            preload="metadata"
+            {{ with .poster }}poster="{{ . }}"{{ end }}
+            aria-label="{{ .title }} demo"
+          >
+            <source src="{{ .video }}" type="video/mp4">
+          </video>
+          {{ end }}
+        </div>
+        <figcaption class="hub-demo-caption">
+          <div class="hub-demo-brand">
+            {{ with .logo }}
+            <img class="hub-demo-logo" src="{{ . }}" alt="" width="28" height="28" loading="lazy">
+            {{ end }}
+            <p class="hub-demo-title">{{ .title }}</p>
+          </div>
+          {{ with .caption }}
+          <p class="hub-demo-text">{{ . }}</p>
+          {{ end }}
+        </figcaption>
+      </figure>
+      {{ end }}
+    </div>
   </div>
 </section>

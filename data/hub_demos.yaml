@@ -1,10 +1,32 @@
-# Hub feature demo (2i2c-style muted autoplay looping video)
-# Fields: id, title, caption, video, poster
+# Hub feature demos (2i2c-style muted autoplay looping videos)
+# Fields: id, title, caption, video, poster, logo
 #
 # How to update: see scripts/demo-recording/README.md
 
-- id: cal-icor-intro
-  title: Cal-ICOR in action
-  caption: A short look at the statewide JupyterHub platform — muted and looping, no click required.
-  video: /videos/cal-icor-intro.mp4
-  poster: /videos/cal-icor-intro.jpg
+- id: jupyter-notebook
+  title: Jupyter
+  caption: Notebooks in the browser
+  video: /videos/jupyter-notebook.mp4
+  poster: /videos/jupyter-notebook.jpg
+  logo: /images/logos/tools/jupyter.svg
+
+- id: vscode
+  title: VS Code
+  caption: Full IDE workflows
+  video: /videos/vscode.mp4
+  poster: /videos/vscode.jpg
+  logo: /images/logos/tools/vscode.svg
+
+- id: rstudio
+  title: RStudio
+  caption: R analysis & plots
+  video: /videos/rstudio.mp4
+  poster: /videos/rstudio.jpg
+  logo: /images/logos/tools/rstudio.svg
+
+- id: sagemath
+  title: SageMath
+  caption: Symbolic math & plots
+  video: /videos/sagemath.mp4
+  poster: /videos/sagemath.jpg
+  logo: /images/logos/tools/sagemath.svg
