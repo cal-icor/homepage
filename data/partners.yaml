@@ -147,6 +147,14 @@
   lat: 34.1814
   lng: -117.3239
 
+- id: csu-san-marcos
+  name: CSU San Marcos
+  logo: /images/logos/partners/csusm.png
+  url: https://www.csusm.edu
+  hub: https://csusm.jupyter.cal-icor.org
+  lat: 33.1295
+  lng: -117.1597
+
 # California Community Colleges
 - id: folsom-lake
   name: Folsom Lake College
