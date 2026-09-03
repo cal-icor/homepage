@@ -143,9 +143,13 @@
     }
 
     function tileUrl() {
-      return isDark()
-        ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-        : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+      var style = isDark() ? 'World_Dark_Gray_Base' : 'World_Light_Gray_Base';
+      return 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/' + style + '/MapServer/tile/{z}/{y}/{x}';
+    }
+
+    function tileLabelsUrl() {
+      var style = isDark() ? 'World_Dark_Gray_Reference' : 'World_Light_Gray_Reference';
+      return 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/' + style + '/MapServer/tile/{z}/{y}/{x}';
     }
 
     var map = L.map(canvas, {
@@ -159,8 +163,12 @@
 
     var tileLayer = L.tileLayer(tileUrl(), {
       attribution: '',
-      subdomains: 'abcd',
-      maxZoom: 19,
+      maxZoom: 16,
+    }).addTo(map);
+
+    var tileLabelsLayer = L.tileLayer(tileLabelsUrl(), {
+      attribution: '',
+      maxZoom: 16,
     }).addTo(map);
 
     map.fitBounds(CA_BOUNDS, { padding: [12, 12], maxZoom: 7 });
@@ -365,6 +373,7 @@
 
     var themeObserver = new MutationObserver(function () {
       tileLayer.setUrl(tileUrl());
+      tileLabelsLayer.setUrl(tileLabelsUrl());
     });
     themeObserver.observe(document.documentElement, {
       attributes: true,

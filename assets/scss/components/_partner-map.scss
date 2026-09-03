@@ -206,10 +206,6 @@
   border: 1px solid var(--color-border);
   border-radius: $radius-xl;
   box-shadow: var(--shadow-md);
-
-  [data-theme="dark"] & .leaflet-tile-pane {
-    filter: brightness(1.5) contrast(0.85) saturate(1.15);
-  }
 }
 
 .partner-map-block,
