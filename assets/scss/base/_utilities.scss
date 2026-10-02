@@ -78,10 +78,21 @@
   border-radius: $radius-lg;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: all $transition-base;
-  
+  transition-property: background-color, border-color, color, transform;
+  transition-duration: 200ms;
+  transition-timing-function: $ease-out;
+
   &:hover {
     text-decoration: none;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
   }
 }
 

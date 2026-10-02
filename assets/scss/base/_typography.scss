@@ -29,6 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading);
   margin-top: 0;
   margin-bottom: $spacing-4;
+  text-wrap: balance;
 }
 
 h1 {
@@ -73,6 +74,25 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: $spacing-4;
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Keep fades and color changes; drop movement.
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-property: color, background-color, border-color, opacity, box-shadow !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 a {

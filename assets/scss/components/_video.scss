@@ -76,6 +76,68 @@
   background-color: var(--color-gray-900);
 }
 
+// The whole video is the play/pause target; an icon flashes on toggle.
+.hub-demo-toggle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: inherit;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.hub-demo-toggle-flash {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-full;
+  background-color: rgba(17, 24, 39, 0.6);
+  opacity: 0;
+}
+
+.hub-demo-toggle.is-flashing .hub-demo-toggle-flash {
+  animation: hub-demo-flash 600ms $ease-out;
+}
+
+@keyframes hub-demo-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+.hub-demo-toggle-icon {
+  grid-area: 1 / 1;
+}
+
+// Flash shows the new state: play when resuming, pause when stopping.
+.hub-demo-toggle-play,
+.is-playing .hub-demo-toggle-pause {
+  display: none;
+}
+
+.is-playing .hub-demo-toggle-play {
+  display: block;
+}
+
 .hub-demo-caption {
   padding: 0 $spacing-1;
 }

@@ -12,7 +12,6 @@
             class="hub-demo-video"
             muted
             playsinline
-            autoplay
             loop
             preload="metadata"
             {{ with .poster }}poster="{{ . }}"{{ end }}
@@ -20,6 +19,12 @@
           >
             <source src="{{ .video }}" type="video/mp4">
           </video>
+          <button type="button" class="hub-demo-toggle" aria-label="Play {{ .title }} demo" data-label="{{ .title }} demo" hidden>
+            <span class="hub-demo-toggle-flash" aria-hidden="true">
+              <svg class="hub-demo-toggle-icon hub-demo-toggle-play" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg>
+              <svg class="hub-demo-toggle-icon hub-demo-toggle-pause" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </span>
+          </button>
           {{ end }}
         </div>
         <figcaption class="hub-demo-caption">
@@ -38,3 +43,62 @@
     </div>
   </div>
 </section>
+
+<script>
+// Demos loop only while on screen, never for reduced-motion users,
+// and each has a pause/play control (WCAG 2.2.2).
+document.addEventListener('DOMContentLoaded', function() {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var demos = document.querySelectorAll('.hub-demo-media');
+
+  demos.forEach(function(media) {
+    var video = media.querySelector('.hub-demo-video');
+    var toggle = media.querySelector('.hub-demo-toggle');
+    if (!video || !toggle) return;
+
+    var userPaused = reduceMotion.matches;
+    var inView = false;
+
+    function sync() {
+      var playing = !video.paused;
+      media.classList.toggle('is-playing', playing);
+      toggle.setAttribute('aria-label', (playing ? 'Pause ' : 'Play ') + toggle.dataset.label);
+    }
+
+    function update() {
+      if (inView && !userPaused) {
+        var p = video.play();
+        if (p && p.catch) p.catch(function() {});
+      } else {
+        video.pause();
+      }
+    }
+
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    toggle.hidden = false;
+    toggle.addEventListener('click', function() {
+      userPaused = !video.paused;
+      if (userPaused) video.pause(); else { inView = true; update(); }
+      media.classList.toggle('is-playing', !userPaused);
+      toggle.classList.remove('is-flashing');
+      void toggle.offsetWidth; // restart the flash on rapid clicks
+      toggle.classList.add('is-flashing');
+    });
+    toggle.addEventListener('animationend', function() {
+      toggle.classList.remove('is-flashing');
+    });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries) {
+        inView = entries[0].isIntersecting;
+        update();
+      }, { threshold: 0.25 }).observe(media);
+    } else {
+      inView = true;
+      update();
+    }
+    sync();
+  });
+});
+</script>

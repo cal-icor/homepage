@@ -3,7 +3,7 @@
 # Link types: linkedin, github, twitter, website, instagram, youtube
 
 - name: Edwin Vargas Navarro
-  image: /images/staff/edwin.png
+  image: /images/staff/edwin.jpg
   email: jedwin321@berkeley.edu
   links:
     - type: linkedin
@@ -12,7 +12,7 @@
       url: https://github.com/jedwin3210
 
 - name: Eric Van Dusen
-  image: /images/staff/eric.png
+  image: /images/staff/eric.jpg
   email: ericvd@berkeley.edu
   links:
     - type: linkedin
@@ -21,7 +21,7 @@
       url: https://github.com/ericvd-ucb
 
 - name: John DeNero
-  image: /images/staff/john.png
+  image: /images/staff/john.jpg
   email: denero@berkeley.edu
   links:
     - type: linkedin
@@ -30,14 +30,14 @@
       url: https://github.com/papajohn
 
 - name: Sean Morris
-  image: /images/staff/sean.png
+  image: /images/staff/sean.jpg
   email: sean.smorris@berkeley.edu
   links:
     - type: github
       url: https://github.com/sean-morris
 
 - name: Shane Knapp
-  image: /images/staff/shane.png
+  image: /images/staff/shane.jpg
   email: sknapp@berkeley.edu
   links:
     - type: linkedin

@@ -36,6 +36,10 @@
 .navbar-logo {
   height: 40px;
   width: auto;
+
+  @media (min-width: $breakpoint-lg) {
+    height: 48px;
+  }
 }
 
 .navbar-logo-dark {
@@ -69,15 +73,47 @@
   cursor: pointer;
   border-radius: $radius-lg;
   color: var(--color-gray-600);
-  transition: color $transition-fast;
+  transition: color $transition-fast, transform $transition-fast;
 
   &:hover {
     color: var(--color-primary);
   }
 
+  &:active {
+    transform: scale(0.96);
+  }
+
+  // Both icons stay in the DOM; the outgoing one spins out as the
+  // incoming one spins in, so the swap reads as one motion.
+  .theme-toggle-icons {
+    display: grid;
+    place-items: center;
+  }
+
   .theme-toggle-icon {
-    font-size: 1.25rem;
-    line-height: 1;
+    grid-area: 1 / 1;
+    display: block;
+    transition: opacity $duration-fast $ease-icon, transform $duration-fast $ease-icon, filter $duration-fast $ease-icon;
+  }
+
+  .theme-toggle-icon-sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.25);
+    filter: blur(4px);
+  }
+}
+
+[data-theme="dark"] .theme-toggle {
+  .theme-toggle-icon-moon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.25);
+    filter: blur(4px);
+  }
+
+  .theme-toggle-icon-sun {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
 
@@ -137,7 +173,7 @@
 }
 
 .navbar-nav {
-  display: none;
+  display: flex;
   position: absolute;
   top: 100%;
   left: 0;
@@ -147,13 +183,24 @@
   padding: $spacing-4 $container-padding;
   flex-direction: column;
   gap: $spacing-2;
-  
+  // Closed: fade out quickly, hide once the fade finishes.
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity $duration-quick $ease-out, transform $duration-quick $ease-out, visibility 0s linear $duration-quick;
+
   &.open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity $duration-fast $ease-out, transform $duration-fast $ease-out, visibility 0s;
   }
-  
+
   @media (min-width: $breakpoint-lg) {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
     position: static;
     flex-direction: row;
     align-items: center;
