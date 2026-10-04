@@ -27,14 +27,6 @@
   lat: 33.7838
   lng: -118.1141
 
-- id: csu-maritime
-  name: CSU Maritime
-  logo: /images/logos/partners/csu-maritime.png
-  url: https://www.csum.edu
-  hub: https://csum.jupyter.cal-icor.org
-  lat: 38.0969
-  lng: -122.2283
-
 - id: csu-sacramento
   name: CSU Sacramento
   logo: /images/logos/partners/csus.png
@@ -66,14 +58,6 @@
   hub: https://csufresno.jupyter.cal-icor.org
   lat: 36.8134
   lng: -119.7465
-
-- id: csu-los-angeles
-  name: CSU Los Angeles
-  logo: /images/logos/partners/csula.png
-  url: https://www.calstatela.edu/
-  hub: https://csula.jupyter.cal-icor.org
-  lat: 34.0669
-  lng: -118.1689
 
 - id: csu-northridge
   name: CSU Northridge
@@ -179,12 +163,3 @@
   hub: https://fresno.jupyter.cal-icor.org
   lat: 36.7378
   lng: -119.7871
-
-# California Private Colleges
-- id: usc
-  name: University of Southern California
-  logo: /images/logos/partners/usc.png
-  url: https://www.usc.edu/
-  hub: https://usc.jupyter.cal-icor.org
-  lat: 34.0224
-  lng: -118.2851
