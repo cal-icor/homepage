@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [main, ben]
   workflow_dispatch:
+  schedule:
+    - cron: '30 14 * * *' # nightly, to refresh the homepage usage map
 
 permissions:
   contents: write
@@ -30,6 +32,14 @@ jobs:
         with:
           hugo-version: '0.155.2'
           extended: true
+
+      # Writes data/hub_stats.json for the usage map. If it fails, the site
+      # still deploys and the map section is left out.
+      - name: Fetch hub usage
+        continue-on-error: true
+        env:
+          GRAFANA_TOKEN: ${{ secrets.GRAFANA_TOKEN }}
+        run: python3 scripts/fetch_hub_stats.py
 
       - name: Build site
         run: hugo --minify --logLevel error

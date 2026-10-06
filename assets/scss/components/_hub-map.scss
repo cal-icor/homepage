@@ -1,0 +1,144 @@
+// Usage Map Component (beside the homepage mission)
+// ==================================================
+
+.intro-layout {
+  display: grid;
+  gap: $spacing-12;
+  align-items: center;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: minmax(0, 1fr) 420px;
+    gap: $spacing-16;
+  }
+
+  .intro-content {
+    max-width: none;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.hub-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-4 $spacing-10;
+  margin: $spacing-8 0;
+}
+
+.hub-stat {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}
+
+.hub-stat-value {
+  font-family: $font-family-heading;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.hub-stat-label {
+  font-size: $font-size-sm;
+  color: var(--color-text-light);
+}
+
+// System colors, validated as a categorical set (all pairs, incl. color
+// vision deficiency) against the land color in each theme.
+.hub-map {
+  --hub-map-uc: #b45309;
+  --hub-map-csu: #1a56db;
+  --hub-map-ccc: #0f9488;
+  --hub-map-land: var(--color-gray-100);
+  --hub-map-edge: var(--color-gray-300);
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+[data-theme="dark"] .hub-map {
+  --hub-map-uc: #d97706;
+  --hub-map-csu: #3f83f8;
+  --hub-map-ccc: #0d9488;
+  --hub-map-land: var(--color-background); // gray-100 is too close to the dots
+}
+
+.hub-map-figure {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+
+.hub-map-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hub-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-2 $spacing-5;
+  margin: $spacing-4 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: $font-size-sm;
+  color: var(--color-text);
+}
+
+.hub-map-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+  margin: 0;
+}
+
+.hub-map-legend-count {
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hub-map-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: $radius-full;
+}
+
+.hub-map-swatch-uc { background-color: var(--hub-map-uc); }
+.hub-map-swatch-csu { background-color: var(--hub-map-csu); }
+.hub-map-swatch-ccc { background-color: var(--hub-map-ccc); }
+
+.hub-map-note {
+  margin: $spacing-2 0 0;
+  font-size: $font-size-sm;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.hub-map-nowrap {
+  white-space: nowrap;
+}
+
+.hub-map-tooltip {
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, calc(-100% - 12px));
+  padding: $spacing-2 $spacing-3;
+  border-radius: $radius-md;
+  background-color: var(--color-heading);
+  color: var(--color-background);
+  font-size: $font-size-sm;
+  line-height: $line-height-tight;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+
+  strong {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: $font-weight-semibold;
+  }
+}
