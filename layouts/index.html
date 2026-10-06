@@ -1,7 +1,7 @@
 {{ define "main" }}
 <!-- Hero Section -->
 {{ partial "hero.html" (dict 
-  "title" "Browser-based Interactive Programming and Data Science Platform for Every California Student"
+  "title" "Free Browser-based Interactive Programming and Data Science Platform for Every California Student"
   "subtitle" "Cal-ICOR gives educators and institutions a shared, scalable JupyterHub platform that removes hardware barriers, supports modern data science instruction, and expands access across the state."
   "cta1_text" "Partner With Us"
   "cta1_url" "/partner/"
@@ -9,14 +9,34 @@
   "cta2_url" "/materials/"
 ) }}
 
-<!-- Mission Introduction -->
+<!-- Mission Introduction, with the usage map when hub stats are available -->
+{{ $usage := partial "hub_usage.html" . }}
 <section class="section intro-section">
-  <div class="container">
+  <div class="container{{ if $usage }} intro-layout{{ end }}">
     <div class="intro-content">
       <h2>A Statewide Infrastructure for Equitable Access to Industry-Standard Programming and Data Science Tools</h2>
       <p>Cal-ICOR (California Interactive Computing Open Resource) is a UC Berkeley-led initiative supported by the California Education Learning Lab. Our mission is to bring high-quality, cloud-hosted Jupyter environments and modular data-science curricula to public colleges and universities across California with zero local installation, zero software maintenance, and equal access for every student, regardless of device or financial and educational background.</p>
-      <p class="mission-statement"><strong>Our mission is simple: ensure that every student in California has access to the tools, skills, and learning environments that prepare them for data-rich careers and civic participation.</strong></p>
+      {{ with $usage }}
+      <div class="hub-stats">
+        <div class="hub-stat">
+          <span class="hub-stat-value">{{ lang.FormatNumber 0 .totals.term }}</span>
+          <span class="hub-stat-label">students this term</span>
+        </div>
+        <div class="hub-stat">
+          <span class="hub-stat-value">{{ lang.FormatNumber 0 .totals.allTime }}</span>
+          <span class="hub-stat-label">students all time</span>
+        </div>
+        {{ if .hasDay }}
+        <div class="hub-stat">
+          <span class="hub-stat-value">{{ lang.FormatNumber 0 .totals.day }}</span>
+          <span class="hub-stat-label">students on {{ .dayLabel }}</span>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+      <p class="mission-statement">Our mission is simple: ensure that every student in California has access to the tools, skills, and learning environments that prepare them for data-rich careers and civic participation.</p>
     </div>
+    {{ with $usage }}{{ partial "hub_map.html" . }}{{ end }}
   </div>
 </section>
 

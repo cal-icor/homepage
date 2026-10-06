@@ -1,9 +1,12 @@
 # Partner institutions - Fall 2025
 # Fields: id, name, logo, url, hub, lat, lng
+# stats_name: the college's name in the hub usage data, when it differs from name
+# system: uc, csu or ccc (California Community Colleges); colors the usage map
 
 # UC Partners
 - id: uc-berkeley
   name: UC Berkeley
+  system: uc
   logo: /images/logos/partners/ucb.png
   url: https://www.berkeley.edu
   hub: https://jupyter.cal-icor.org
@@ -12,6 +15,8 @@
 
 - id: uc-santa-cruz
   name: UC Santa Cruz
+  system: uc
+  stats_name: "University of California, Santa Cruz"
   logo: /images/logos/partners/ucsc.png
   url: https://www.ucsc.edu
   hub: https://ucsc.jupyter.cal-icor.org
@@ -21,6 +26,7 @@
 # CSU Partners
 - id: csu-long-beach
   name: CSU Long Beach
+  system: csu
   logo: /images/logos/partners/csulb.jpg
   url: https://www.csulb.edu
   hub: https://csulb.jupyter.cal-icor.org
@@ -29,6 +35,7 @@
 
 - id: csu-sacramento
   name: CSU Sacramento
+  system: csu
   logo: /images/logos/partners/csus.png
   url: https://www.csus.edu
   hub: https://csus.jupyter.cal-icor.org
@@ -37,6 +44,7 @@
 
 - id: csu-fullerton
   name: CSU Fullerton
+  system: csu
   logo: /images/logos/partners/csuf.png
   url: https://www.fullerton.edu
   hub: https://csuf.jupyter.cal-icor.org
@@ -45,6 +53,7 @@
 
 - id: csu-san-jose
   name: CSU San Jose
+  system: csu
   logo: /images/logos/partners/sjsu.png
   url: https://www.sjsu.edu
   hub: https://csusj.jupyter.cal-icor.org
@@ -53,6 +62,7 @@
 
 - id: csu-fresno
   name: CSU Fresno
+  system: csu
   logo: /images/logos/partners/csufresno.png
   url: https://www.fresnostate.edu/
   hub: https://csufresno.jupyter.cal-icor.org
@@ -61,6 +71,7 @@
 
 - id: csu-northridge
   name: CSU Northridge
+  system: csu
   logo: /images/logos/partners/csun.png
   url: https://www.csun.edu/
   hub: https://csun.jupyter.cal-icor.org
@@ -69,6 +80,8 @@
 
 - id: csu-chico
   name: CSU Chico State
+  system: csu
+  stats_name: "CSU Chico"
   logo: /images/logos/partners/csuchico.png
   url: https://www.csuchico.edu/
   hub: https://chicostate.jupyter.cal-icor.org
@@ -77,6 +90,7 @@
 
 - id: csu-sonoma
   name: CSU Sonoma
+  system: csu
   logo: /images/logos/partners/csusonoma.png
   url: https://www.sonoma.edu/
   hub: https://csusonoma.jupyter.cal-icor.org
@@ -85,6 +99,7 @@
 
 - id: csu-monterey-bay
   name: CSU Monterey Bay
+  system: csu
   logo: /images/logos/partners/csumb.png
   url: https://www.csumb.edu
   hub: https://csumb.jupyter.cal-icor.org
@@ -93,6 +108,7 @@
 
 - id: csu-east-bay
   name: CSU East Bay
+  system: csu
   logo: /images/logos/partners/csueb.png
   url: https://www.csueastbay.edu
   hub: https://csueb.jupyter.cal-icor.org
@@ -101,6 +117,7 @@
 
 - id: csu-bakersfield
   name: CSU Bakersfield
+  system: csu
   logo: /images/logos/partners/csub.png
   url: https://www.csub.edu
   hub: https://csub.jupyter.cal-icor.org
@@ -109,6 +126,7 @@
 
 - id: csu-dominguez-hills
   name: CSU Dominguez Hills
+  system: csu
   logo: /images/logos/partners/csudominguez.png
   url: https://www.csudh.edu
   hub: https://csudh.jupyter.cal-icor.org
@@ -117,6 +135,7 @@
 
 - id: cal-poly-pomona
   name: Cal Poly Pomona
+  system: csu
   logo: /images/logos/partners/cpp.png
   url: https://www.cpp.edu
   hub: https://cpp.jupyter.cal-icor.org
@@ -125,6 +144,7 @@
 
 - id: csu-san-bernardino
   name: CSU San Bernardino
+  system: csu
   logo: /images/logos/partners/csusb.png
   url: https://www.csusb.edu
   hub: https://csusb.jupyter.cal-icor.org
@@ -133,6 +153,7 @@
 
 - id: csu-san-marcos
   name: CSU San Marcos
+  system: csu
   logo: /images/logos/partners/csusm.png
   url: https://www.csusm.edu
   hub: https://csusm.jupyter.cal-icor.org
@@ -142,6 +163,7 @@
 # California Community Colleges
 - id: folsom-lake
   name: Folsom Lake College
+  system: ccc
   logo: /images/logos/partners/flc.png
   url: https://www.flc.losrios.edu
   hub: https://folsomlake.jupyter.cal-icor.org
@@ -150,6 +172,7 @@
 
 - id: diablo-valley
   name: Diablo Valley College
+  system: ccc
   logo: /images/logos/partners/dvc.png
   url: https://www.dvc.edu
   hub: https://dvc.jupyter.cal-icor.org
@@ -158,6 +181,7 @@
 
 - id: fresno-city
   name: Fresno City College
+  system: ccc
   logo: /images/logos/partners/fresno.png
   url: https://www.fresnocitycollege.edu/
   hub: https://fresno.jupyter.cal-icor.org

@@ -18,7 +18,7 @@
   
   @media (min-width: $breakpoint-lg) {
     grid-template-columns: 1fr auto;
-    gap: $spacing-16;
+    gap: $spacing-10;
   }
 }
 
@@ -36,6 +36,7 @@
   color: var(--color-white);
   margin-bottom: $spacing-6;
   line-height: $line-height-tight;
+  text-wrap: wrap; // fill the column; balance left a gap beside the logos (the title keeps its last two words together)
   
   @media (min-width: $breakpoint-md) {
     font-size: $font-size-4xl;
@@ -105,16 +106,16 @@
 
 .hero-icons {
   display: flex;
-  gap: $spacing-6;
+  gap: $spacing-4;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: $spacing-6 $spacing-8;
-  border-radius: $radius-2xl;
+  padding: $spacing-4 $spacing-5;
+  border-radius: $radius-xl;
 }
 
 .hero-icon {
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.9;

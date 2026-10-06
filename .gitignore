@@ -31,3 +31,6 @@ scripts/demo-recording/*.webm
 !scripts/demo-recording/README.md
 !scripts/demo-recording/record_jupyter_demo.py
 !scripts/demo-recording/cal-icor-notebook-demo.ipynb
+
+# Generated at build time by scripts/fetch_hub_stats.py
+data/hub_stats.json

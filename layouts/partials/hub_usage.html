@@ -1,0 +1,39 @@
+{{/* Hub usage for each partner campus, plus totals across every Cal-ICOR
+     hub (including ones not on the partner list and retired ones), from
+     data/hub_stats.json (scripts/fetch_hub_stats.py). Returns false when
+     that file is missing.
+
+     Colleges match by stats_name (or name); hubs match by the hub URL's
+     subdomain: csumb.jupyter.cal-icor.org -> csumb, jupyter.cal-icor.org ->
+     jupyter (the Workshop Hub, which Berkeley staff use). */}}
+{{ $usage := false }}
+{{ with site.Data.hub_stats }}
+  {{ $stats := . }}
+  {{ $campuses := slice }}
+  {{ range site.Data.partners }}
+    {{ $term := 0 }}
+    {{ $allTime := 0 }}
+    {{ with index $stats.colleges (.stats_name | default .name) }}
+      {{ $term = .term }}
+      {{ $allTime = .allTime }}
+    {{ end }}
+    {{ $hub := index (split (urls.Parse .hub).Host ".") 0 }}
+    {{ $day := 0 }}
+    {{ with $stats.hubs }}{{ $day = index . $hub | default 0 }}{{ end }}
+    {{ $campuses = $campuses | append (dict
+      "id" .id "name" .name "system" .system "lat" .lat "lng" .lng
+      "day" $day "term" $term "allTime" $allTime
+    ) }}
+  {{ end }}
+  {{ $dayLabel := "" }}
+  {{ with $stats.day }}{{ $dayLabel = (time.AsTime .).Format "Jan 2" }}{{ end }}
+  {{ $usage = dict
+    "campuses" $campuses
+    "totals" $stats.totals
+    "term" $stats.term
+    "hasDay" (isset $stats "hubs")
+    "dayLabel" $dayLabel
+    "updated" (time.AsTime $stats.updated)
+  }}
+{{ end }}
+{{ return $usage }}

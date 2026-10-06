@@ -1,0 +1,56 @@
+{{/* Usage map: one dot per student this term, scattered around their
+     campus. Takes the result of partial "hub_usage.html". */}}
+{{ $outline := site.Data.ca_outline }}
+<div class="hub-map">
+  <figure class="hub-map-figure" style="aspect-ratio: {{ $outline.width }} / {{ $outline.height }}">
+    <canvas class="hub-map-canvas" aria-hidden="true"></canvas>
+    <div class="hub-map-tooltip" aria-hidden="true" hidden></div>
+  </figure>
+  <ul class="hub-map-legend">
+    {{ range slice
+      (dict "key" "uc" "label" "UC")
+      (dict "key" "csu" "label" "CSU")
+      (dict "key" "ccc" "label" "Community colleges")
+    }}
+    {{ $students := 0 }}
+    {{ range where $.campuses "system" .key }}{{ $students = add $students .term }}{{ end }}
+    {{ if $students }}
+    <li class="hub-map-legend-item">
+      <span class="hub-map-swatch hub-map-swatch-{{ .key }}" aria-hidden="true"></span>
+      {{ .label }} <span class="hub-map-legend-count">{{ lang.FormatNumber 0 $students }}</span>
+    </li>
+    {{ end }}
+    {{ end }}
+  </ul>
+  <p class="hub-map-note">
+    Each dot is one student this term, placed near their campus.
+    <span class="hub-map-nowrap">Updated {{ .updated.Format "Jan 2" }}.</span>
+    <a class="hub-map-nowrap" href="https://cal-icor.github.io/hub-users-page/">Detailed usage <span aria-hidden="true">→</span></a>
+  </p>
+
+  <table class="sr-only">
+    <caption>Students using Cal-ICOR, by campus</caption>
+    <thead>
+      <tr>
+        <th scope="col">Campus</th>
+        <th scope="col">{{ .term }}</th>
+        <th scope="col">All time</th>
+        {{ if .hasDay }}<th scope="col">{{ .dayLabel }}</th>{{ end }}
+      </tr>
+    </thead>
+    <tbody>
+      {{ range sort .campuses "term" "desc" }}
+      <tr>
+        <th scope="row">{{ .name }}</th>
+        <td>{{ .term }}</td>
+        <td>{{ .allTime }}</td>
+        {{ if $.hasDay }}<td>{{ .day }}</td>{{ end }}
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+
+  <script type="application/json" id="hub-map-data">{{ dict "campuses" .campuses "hasDay" .hasDay "dayLabel" .dayLabel "outline" $outline | jsonify | safeJS }}</script>
+  {{ $js := resources.Get "js/hub-map.js" | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
+</div>
