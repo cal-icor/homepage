@@ -3,10 +3,12 @@
 {{ partial "hero.html" (dict 
   "title" "Free Browser-based Interactive Programming and Data Science Platform for Every California Student"
   "subtitle" "Cal-ICOR gives educators and institutions a shared, scalable JupyterHub platform that removes hardware barriers, supports modern data science instruction, and expands access across the state."
-  "cta1_text" "Partner With Us"
-  "cta1_url" "/partner/"
-  "cta2_text" "Explore Materials"
-  "cta2_url" "/materials/"
+  "cta1_text" "Fill Out the Interest Form"
+  "cta1_url" site.Params.signup_form
+  "cta2_text" "Partner With Us"
+  "cta2_url" "/partner/"
+  "cta2_arrow" true
+  "cta2_class" "btn-primary"
 ) }}
 
 <!-- Mission Introduction, with the usage map when hub stats are available -->

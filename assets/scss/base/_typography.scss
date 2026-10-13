@@ -77,6 +77,20 @@ p {
   text-wrap: pretty;
 }
 
+// Embedded frames keep one color scheme. Otherwise every theme switch tells
+// them to restyle for light/dark, and the YouTube player stalls the toggle.
+iframe {
+  color-scheme: normal;
+}
+
+// While the theme switches, colors change at once instead of each element
+// easing on its own hover transition (the sun/moon icon still animates).
+.theme-switching *:not(.theme-toggle-icon),
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;

@@ -11,10 +11,31 @@
         <span class="navbar-toggle-icon"></span>
       </button>
       <nav class="navbar-nav">
-        {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">
-          {{ .Name }}
+        {{ range $entry := .Site.Menus.main }}
+        {{ $active := $.IsMenuCurrent "main" $entry }}
+        {{ with $entry.Params.dropdown }}
+        {{/* A dropdown of the links in data/<dropdown>.yaml: opens on hover
+             (desktop), on the chevron button (keyboard, touch); always
+             listed under its link in the mobile menu. */}}
+        <div class="nav-dropdown">
+          <a href="{{ $entry.URL }}" class="nav-link{{ if $active }} active{{ end }}">{{ $entry.Name }}</a>
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-dropdown-{{ . }}">
+            <span class="sr-only">Show {{ $entry.Name }} links</span>
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu" id="nav-dropdown-{{ . }}">
+            {{ range index site.Data . }}
+            <li>
+              <a href="{{ .link }}" class="nav-dropdown-link" target="_blank" rel="noopener">{{ .title }}<span aria-hidden="true">&nbsp;↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+        {{ else }}
+        <a href="{{ $entry.URL }}" class="nav-link{{ if $active }} active{{ end }}">
+          {{ $entry.Name }}
         </a>
+        {{ end }}
         {{ end }}
       </nav>
       <button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">
@@ -42,6 +63,41 @@ document.addEventListener('DOMContentLoaded', function() {
     nav.classList.toggle('open');
   });
 
+  // Dropdowns: hover opens after a short pause (so passing over doesn't
+  // flicker) and closes after a short grace period; the chevron toggles
+  // for keyboard and touch; Escape closes and returns focus.
+  document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+    var button = dropdown.querySelector('.nav-dropdown-toggle');
+    var timer;
+    function set(open) {
+      clearTimeout(timer);
+      dropdown.classList.toggle('is-open', open);
+      button.setAttribute('aria-expanded', open);
+    }
+    dropdown.addEventListener('pointerenter', function(e) {
+      if (e.pointerType !== 'mouse') return;
+      clearTimeout(timer);
+      timer = setTimeout(function() { set(true); }, 80);
+    });
+    dropdown.addEventListener('pointerleave', function(e) {
+      if (e.pointerType !== 'mouse') return;
+      clearTimeout(timer);
+      timer = setTimeout(function() { set(false); }, 150);
+    });
+    button.addEventListener('click', function() {
+      set(button.getAttribute('aria-expanded') !== 'true');
+    });
+    dropdown.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && dropdown.classList.contains('is-open')) {
+        set(false);
+        button.focus();
+      }
+    });
+    dropdown.addEventListener('focusout', function(e) {
+      if (!dropdown.contains(e.relatedTarget)) set(false);
+    });
+  });
+
   var themeBtn = document.querySelector('.theme-toggle');
   function setThemeLabel() {
     var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -50,10 +106,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setThemeLabel();
   themeBtn.addEventListener('click', function() {
-    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
+    var root = document.documentElement;
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    // Switch every color in one frame: pause hover transitions, apply the
+    // theme, then restore them once the new colors have been painted.
+    root.classList.add('theme-switching');
+    root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     setThemeLabel();
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() { root.classList.remove('theme-switching'); });
+    });
   });
 });
 </script>

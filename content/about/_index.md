@@ -4,10 +4,6 @@ description: Expanding equitable access to data science education across Califor
 hero:
   title: About the Cal-ICOR Initiative
   subtitle: Expanding equitable access to data science education across California
-  cta1_text: Partner With Us
-  cta1_url: /partner/
-  cta2_text: Contact Us
-  cta2_url: /contact/
 show_cta: true
 ---
 

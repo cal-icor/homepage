@@ -231,3 +231,133 @@
     padding: 0;
   }
 }
+
+// Dropdown (Explore Materials)
+// =============================
+// Mobile menu: links listed under their parent. Desktop: a panel that opens
+// on hover or the chevron button (JS toggles .is-open).
+
+.nav-dropdown {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $breakpoint-lg) {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+.nav-dropdown-toggle {
+  display: none;
+
+  @media (min-width: $breakpoint-lg) {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    border-radius: $radius-sm;
+    background: none;
+    color: var(--color-gray-600);
+    cursor: pointer;
+
+    // 40px hit area without changing the layout
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+    }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    svg {
+      transition: transform $transition-fast;
+    }
+  }
+}
+
+.nav-dropdown.is-open .nav-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+  margin: 0;
+  padding: 0 0 0 $spacing-4;
+  list-style: none;
+
+  li {
+    margin: 0;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    position: absolute;
+    top: calc(100% + #{$spacing-3});
+    left: -$spacing-3;
+    z-index: 10;
+    gap: 0;
+    min-width: 240px;
+    padding: $spacing-2;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: $radius-lg;
+    box-shadow: var(--shadow-lg);
+    // Closed: fade out quickly, hide once the fade finishes.
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity $duration-quick $ease-out, transform $duration-quick $ease-out, visibility 0s linear $duration-quick;
+
+    // Bridges the gap to the link so moving the mouse down keeps it open.
+    &::before {
+      content: '';
+      position: absolute;
+      top: -$spacing-3;
+      left: 0;
+      right: 0;
+      height: $spacing-3;
+    }
+  }
+}
+
+.nav-dropdown.is-open .nav-dropdown-menu {
+  @media (min-width: $breakpoint-lg) {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity $duration-fast $ease-out, transform $duration-fast $ease-out, visibility 0s;
+  }
+}
+
+.nav-dropdown-link {
+  display: block;
+  padding: $spacing-2 0;
+  font-size: $font-size-sm;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color $transition-fast, background-color $transition-fast;
+
+  &:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: $spacing-2 $spacing-3;
+    border-radius: $radius-md;
+    color: var(--color-text);
+    white-space: nowrap;
+
+    &:hover {
+      background-color: var(--color-background-alt);
+    }
+  }
+}

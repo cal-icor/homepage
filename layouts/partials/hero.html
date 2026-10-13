@@ -3,12 +3,45 @@
     <div class="hero-content">
       <h1 class="hero-title">{{ .title }}</h1>
       <p class="hero-subtitle">{{ .subtitle }}</p>
-      <div class="hero-ctas">
-        {{ if .cta1_text }}
-        <a href="{{ .cta1_url }}" class="btn btn-primary">{{ .cta1_text }}</a>
+      {{/* Pages other than home get previous/next page buttons in navbar
+           order (external links are skipped); home passes its own. */}}
+      {{ $ctas := slice }}
+      {{ $pager := false }}
+      {{ with .page }}
+        {{ $page := . }}
+        {{ $pages := slice }}
+        {{ range site.Menus.main }}{{ if not .Params.external }}{{ $pages = $pages | append . }}{{ end }}{{ end }}
+        {{ range $i, $entry := $pages }}
+          {{ if $page.IsMenuCurrent "main" $entry }}
+            {{ $pager = true }}
+            {{ if gt $i 0 }}
+              {{ $prev := index $pages (sub $i 1) }}
+              {{ $ctas = $ctas | append (dict "text" $prev.Name "url" $prev.URL "class" "btn-secondary" "dir" "prev") }}
+            {{ end }}
+            {{ if lt (add $i 1) (len $pages) }}
+              {{ $next := index $pages (add $i 1) }}
+              {{ $ctas = $ctas | append (dict "text" $next.Name "url" $next.URL "class" "btn-primary" "dir" "next") }}
+            {{ end }}
+          {{ end }}
         {{ end }}
-        {{ if .cta2_text }}
-        <a href="{{ .cta2_url }}" class="btn btn-secondary">{{ .cta2_text }}</a>
+      {{ else }}
+        {{ $ctas = slice
+          (dict "text" .cta1_text "url" .cta1_url "class" (.cta1_class | default "btn-primary") "arrow" .cta1_arrow)
+          (dict "text" .cta2_text "url" .cta2_url "class" (.cta2_class | default "btn-secondary") "arrow" .cta2_arrow)
+        }}
+      {{ end }}
+      <div class="hero-ctas{{ if $pager }} hero-ctas-pager{{ end }}">
+        {{ range $ctas }}
+        {{ if .text }}
+        {{ $external := hasPrefix .url "http" }}
+        <a href="{{ .url }}" class="btn {{ .class }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>
+          {{ if eq .dir "prev" }}<span aria-hidden="true">←&nbsp;</span><span class="sr-only">Previous page: </span>{{ end }}
+          {{- if eq .dir "next" }}<span class="sr-only">Next page: </span>{{ end }}
+          {{- .text }}
+          {{- if or (eq .dir "next") .arrow }}<span aria-hidden="true">&nbsp;→</span>{{ end }}
+          {{- if $external }}<span aria-hidden="true">&nbsp;↗</span><span class="sr-only"> (opens in a new tab)</span>{{ end }}
+        </a>
+        {{ end }}
         {{ end }}
       </div>
     </div>

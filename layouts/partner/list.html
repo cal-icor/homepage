@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="page">
   {{ if .Params.hero }}
-  {{ partial "hero.html" (dict "title" .Params.hero.title "subtitle" .Params.hero.subtitle "cta1_text" .Params.hero.cta1_text "cta1_url" .Params.hero.cta1_url "cta2_text" .Params.hero.cta2_text "cta2_url" .Params.hero.cta2_url) }}
+  {{ partial "hero.html" (dict "title" .Params.hero.title "subtitle" .Params.hero.subtitle "cta1_text" .Params.hero.cta1_text "cta1_url" .Params.hero.cta1_url "cta2_text" .Params.hero.cta2_text "cta2_url" .Params.hero.cta2_url "page" .) }}
   {{ else }}
   <header class="page-header">
     <div class="container">

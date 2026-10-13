@@ -38,6 +38,8 @@ menus:
     - name: Explore Materials
       pageRef: /materials
       weight: 30
+      params:
+        dropdown: materials  # links from data/materials.yaml
     - name: About
       pageRef: /about
       weight: 40

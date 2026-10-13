@@ -4,10 +4,6 @@ description: Teaching resources designed for accessibility, flexibility, and col
 hero:
   title: Explore Sample Course Materials
   subtitle: Teaching resources designed for accessibility, flexibility, and collaboration
-  cta1_text: Partner With Us
-  cta1_url: /partner/
-  cta2_text: Contact Us
-  cta2_url: /contact/
 show_cta: true
 ---
 

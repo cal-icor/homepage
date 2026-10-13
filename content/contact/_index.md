@@ -18,7 +18,7 @@ Whether you're ready to bring Cal-ICOR to your campus, have questions about our 
   
   <div class="contact-option">
     <h3>Interest Form</h3>
-    <p><a href="https://forms.gle/fH5HSAqzDyGpKVXs6" target="_blank" rel="noopener" class="btn btn-primary">Fill Out the Interest Form</a></p>
+    <p><a href="https://forms.gle/fH5HSAqzDyGpKVXs6" target="_blank" rel="noopener" class="btn btn-primary">Fill Out the Interest Form<span aria-hidden="true">&nbsp;↗</span><span class="sr-only"> (opens in a new tab)</span></a></p>
     <p class="contact-note">Tell us about your institution and goals.</p>
   </div>
 </div>

@@ -9,6 +9,12 @@
       else document.documentElement.setAttribute('data-theme', 'light');
     })();
   </script>
+  <!-- Paint the right background before any stylesheet loads, so pages don't
+       flash white in dark mode (matches --color-background in _theme.scss). -->
+  <style>
+    html[data-theme="light"] { color-scheme: light; background-color: #ffffff; }
+    html[data-theme="dark"] { color-scheme: dark; background-color: #111827; }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">

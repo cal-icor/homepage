@@ -96,6 +96,16 @@
   }
 }
 
+// Previous/next buttons: page-turn order side by side; stacked on phones,
+// the next page (the main path) goes on top.
+.hero-ctas-pager {
+  flex-direction: column-reverse;
+
+  @media (min-width: $breakpoint-sm) {
+    flex-direction: row;
+  }
+}
+
 .hero-visual {
   display: none;
   
