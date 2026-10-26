@@ -16,6 +16,10 @@ Cal-ICOR provides:
 
 This site is built with [Hugo](https://gohugo.io/) and deployed via GitHub Pages.
 
+Local edit → preview → commit → GitHub Action deploys:
+
+<video src="docs/local-dev-workflow.mp4" controls width="360"></video>
+
 ### Prerequisites
 
 - [Hugo Extended](https://gohugo.io/installation/) (latest version recommended)
@@ -58,7 +62,10 @@ homepage/
 │   ├── steps.yaml     # Timeline steps
 │   ├── materials.yaml # Materials cards
 │   ├── expectations.yaml # Partner expectations grid
-│   └── vision.yaml    # About page vision grid
+│   ├── vision.yaml    # About page vision grid
+│   ├── staff.yaml     # Team members (About / Contact)
+│   ├── testimonies.yaml # Student/instructor quotes
+│   └── hub_demos.yaml # Homepage hub demo cards
 ├── layouts/           # Hugo templates
 │   ├── _default/      # Base templates
 │   ├── partials/      # Reusable components
@@ -87,6 +94,9 @@ Edit the YAML files in `data/` to update:
 - `materials.yaml` - Materials resource cards
 - `expectations.yaml` - Partner page 2x2 grid
 - `vision.yaml` - About page vision grid
+- `staff.yaml` - Team members on About and Contact
+- `testimonies.yaml` - Quotes on the Materials page
+- `hub_demos.yaml` - Homepage hub demo cards
 
 ### Styles
 
@@ -99,6 +109,7 @@ Edit SCSS files in `assets/scss/` to customize the design:
 Add images to `static/images/`:
 - Partner logos: `static/images/logos/partners/`
 - Materials images: `static/images/materials/`
+- Staff photos: `static/images/staff/`
 
 ## Deployment
 

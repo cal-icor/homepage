@@ -34,3 +34,6 @@ scripts/demo-recording/*.webm
 
 # Generated at build time by scripts/fetch_hub_stats.py
 data/hub_stats.json
+
+# readme2reel scaffold
+.readme2reel/
